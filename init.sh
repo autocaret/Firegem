@@ -20,9 +20,9 @@
 # Rune Nilssen
 
 echo "Creating symlink:"
-ln -s /usr/local/arena2/admin
-ln -s /usr/local/arena2/lib
-ln -s /usr/local/arena2/web
+ln -s /usr/local/firegem/admin
+ln -s /usr/local/firegem/lib
+ln -s /usr/local/firegem/web
 ln -s web/index.php
 ln -s admin/admin.php
 ln -s lib/htaccess .htaccess
@@ -39,13 +39,13 @@ chmod -R 777 upload
 echo "extensions folder"
 mkdir "extensions"
 echo "editor extension"
-ln -s /usr/local/arena2/extensions/editor extensions/editor
+ln -s /usr/local/firegem/extensions/editor extensions/editor
 echo "Done."
 echo "Setting up config file"
 echo "<?php define ( SITE_ID, 'My site' ); define ( NEWEDITOR, 'true' ); ?>" > config.php
 chmod 777 config.php
 echo "Making installer available."
-cp /usr/local/arena2/install.php .
+cp /usr/local/firegem/install.php .
 
 
 
