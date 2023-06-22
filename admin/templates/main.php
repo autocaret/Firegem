@@ -36,7 +36,7 @@
 <?= implode ( "\\n", $this->sHeadData ) ?>
 	</head>
 	<body class="<?= getCurrentModule ( ) ?>">
-		<div id="TopLogo"><a href="<?= BASE_URL ?>admin.php"><img src="admin/gfx/logo-neg.svg" border="0"/></a></div>
+		<div id="TopLogo"><a href="<?= BASE_URL ?>admin.php"><img src="admin/gfx/firegem-logo.png" border="0"/></a></div>
 		<div id="TopLevelContainer">
 		</div>	
 		<div id="MetaButtons">

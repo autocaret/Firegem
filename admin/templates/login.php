@@ -49,7 +49,7 @@ Contributor(s): Hogne Titlestad, Thomas Wollburg, Inge Jørgensen, Ola Jensen,
 			ARENA CM v<?= ARENA_VERSION ?> &copy; 2011-2023 Idéverket AS.
 		</div>
 		<div id="Logo">
-			<img src="admin/gfx/logo-neg.svg" alt="logo"/>
+			<img src="admin/gfx/firegem-logo.png" alt="logo"/>
 		</div>
 		<div id="CenterBox">
 			<div id="Content">
