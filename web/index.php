@@ -147,7 +147,6 @@ if ( isset( $_REQUEST[ 'setlang' ] ) && is_numeric ( $_REQUEST[ 'setlang' ] ) )
 }
 else if ( !$Session->HasUrlActivator && !defined( 'LANGUAGES_ONE_PAGE_STRUCTURE' ) && isset( $_GET[ 'route' ] ) )
 {
-	die( 'foipa' );
 	list ( $langcode, ) = explode ( '/', $_GET[ 'route' ] );
 	if ( $langcode )
 	{
