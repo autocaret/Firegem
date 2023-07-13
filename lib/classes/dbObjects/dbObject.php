@@ -2167,11 +2167,11 @@ class dbObject
 		if ( !$criteria && !$id && !$this->ID ) return false;
 		if ( !$id ) $id = $this->{$this->_primaryKey};
 		
+		$querAr = Array ( );
 		list ( $type, $criteria ) = explode ( '=', $criterias );
 		if ( trim ( $criteria ) && $criteria = explode ( ',', $criteria ) )
 		{
 			$type = trim ( $type );
-			$querAr = Array ( );
 			for ( $a = 0; $a < count ( $criteria ); $a++ )
 			{
 				$querAr[] = "( Connected$type='" . trim ( $criteria[ $a ] ) . '\' )';
