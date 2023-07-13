@@ -273,7 +273,7 @@ class dbObject
 		$this->loadTable();
 	}
 	
-	function public static create( $tableName=false, $database=false, $id=false )
+	public static function create( $tableName=false, $database=false, $id=false )
 	{
 		$className = "db{$tableName}";
 		
