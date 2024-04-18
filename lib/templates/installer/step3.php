@@ -24,7 +24,7 @@ Contributor(s): Hogne Titlestad, Thomas Wollburg, Inge Jørgensen, Ola Jensen,
 ?><!DOCTYPE html><?= header ( 'Content-type: text/html; charset=utf-8;' ); ?>
 <html>
 	<head>
-		<title><?= i18n ( 'ARENACM Site Installed' ) ?></title>
+		<title><?= i18n ( 'Firegem Site Installed' ) ?></title>
 		<meta http-equiv="content-type" content="text/html; charset=utf8;"/>
 		<link rel="stylesheet" href="admin/css/admin.css"/>
 	</head>
@@ -32,7 +32,7 @@ Contributor(s): Hogne Titlestad, Thomas Wollburg, Inge Jørgensen, Ola Jensen,
 		<div class="ModuleContainer">
 			<div class="Container">
 				<h1>
-					<?= i18n ( 'ARENACM Site Installed' ) ?>
+					<?= i18n ( 'Firegem Site Installed' ) ?>
 				</h1>
 				<div class="SubContainer">
 					<p>

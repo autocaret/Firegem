@@ -241,7 +241,7 @@ if ( !isset ( $_REQUEST[ 'bajaxrand' ] ) )
 								$tpl->active = true;
 								$document->extensionsOnTop = true;
 								$Session->set ( 'currentExtension', $extension );
-								$document->Title = $tpl->moduleName . ' - ARENACM v2';
+								$document->Title = $tpl->moduleName . ' - Firegem v2';
 							}
 						}
 						
@@ -261,7 +261,7 @@ if ( !isset ( $_REQUEST[ 'bajaxrand' ] ) )
 		if ( $tpl->module == getCurrentModule ( ) )
 		{
 			$tpl->active = true;
-			$document->Title = i18n ( $tpl->moduleName ) . ' - ARENACM v2';
+			$document->Title = i18n ( $tpl->moduleName ) . ' - Firegem v2';
 		}
 		else $tpl->active = false;
 	

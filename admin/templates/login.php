@@ -29,8 +29,8 @@ Contributor(s): Hogne Titlestad, Thomas Wollburg, Inge Jørgensen, Ola Jensen,
 		</title>
 		<meta http-equiv="content-type: text/html; charset=utf-8"/>
 		<link rel="stylesheet" href="admin/css/login_cm.css"/>
-		<?if(defined('ARENACM_ADMIN_CSS')){?>
-		<link rel="stylesheet" href="<?= ARENACM_ADMIN_CSS ?>"/>
+		<?if(defined('Firegem_ADMIN_CSS')){?>
+		<link rel="stylesheet" href="<?= Firegem_ADMIN_CSS ?>"/>
 		<?}?>
 		<!--[if IE 6]>
 		<link rel="stylesheet" href="admin/css/login_ie6.css"/>
@@ -40,8 +40,8 @@ Contributor(s): Hogne Titlestad, Thomas Wollburg, Inge Jørgensen, Ola Jensen,
 		<![endif]-->
 		<script type="text/javascript" src="lib/javascript/arena-lib.js"></script>
 		<script type="text/javascript" src="lib/javascript/bajax.js"></script>
-		<?if(defined('ARENACM_ADMIN_JAVASCRIPT')){?>
-		<script src="<?= ARENACM_ADMIN_JAVASCRIPT ?>"></script>
+		<?if(defined('Firegem_ADMIN_JAVASCRIPT')){?>
+		<script src="<?= Firegem_ADMIN_JAVASCRIPT ?>"></script>
 		<?}?>
 	</head>
 	<body style="opacity: 0" onload="initLogin()">

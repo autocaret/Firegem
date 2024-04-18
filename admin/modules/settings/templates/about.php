@@ -24,24 +24,24 @@ Contributor(s): Hogne Titlestad, Thomas Wollburg, Inge Jørgensen, Ola Jensen,
 ?>
 		<div class="ModuleContainer">
 			<h1>
-				<?= i18n ( 'About ARENACM' ) ?>
+				<?= i18n ( 'About Firegem' ) ?>
 			</h1>
 			<div class="Container">
 				<div style="width: 500px">
 					<p>
-						<?= i18n ( 'ARENACM is a CMS and a webdeveloper platform' ) ?>.
+						<?= i18n ( 'Firegem is a CMS and a webdeveloper platform' ) ?>.
 					</p>
 					<p>
-						<?= i18n ( 'For more information about ARENACM, please visit the website' ) ?>:
+						<?= i18n ( 'For more information about Firegem, please visit the website' ) ?>:
 					</p>
 					<ul>
 						<li>
-							<a href="http://www.arenacm.org/" target="_blank">http://www.arenacm.org/</a>
+							<a href="http://www.Firegem.org/" target="_blank">http://www.Firegem.org/</a>
 						</li>
 					</ul>
 					<hr/>
 					<p>
-						<?= i18n ( 'ARENACM is using the Silk icons of Mark James' ) ?>
+						<?= i18n ( 'Firegem is using the Silk icons of Mark James' ) ?>
 						(<a href="http://www.famfamfam.com" target="_blank">http://www.famfamfam.com</a>). 
 						<?= i18n ( 'These icons are distributed with the license Creative Commons Attribution 2.5 License' ) ?>.
 					</p>

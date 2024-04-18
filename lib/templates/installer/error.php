@@ -24,7 +24,7 @@ Contributor(s): Hogne Titlestad, Thomas Wollburg, Inge Jørgensen, Ola Jensen,
 ?><!DOCTYPE html><? header ( 'Content-type: text/html; charset=utf-8;' ); ?>
 <html>
 	<head>
-		<title><?= i18n ( 'Install ARENACM Site - Error' ) ?></title>
+		<title><?= i18n ( 'Install Firegem Site - Error' ) ?></title>
 		<meta http-equiv="content-type" content="text/html; charset=utf8;"/>
 		<link rel="stylesheet" href="admin/css/admin.css"/>
 	</head>
@@ -32,7 +32,7 @@ Contributor(s): Hogne Titlestad, Thomas Wollburg, Inge Jørgensen, Ola Jensen,
 		<div class="ModuleContainer">
 			<div class="Container">
 				<h1>
-					<?= i18n ( 'Install ARENACM Site - Error' ) ?>
+					<?= i18n ( 'Install Firegem Site - Error' ) ?>
 				</h1>
 				<div class="Container">
 					<div style="border: 2px solid #a00; background: #ffc; padding: 15px"><?= $this->error ?></div>

@@ -260,7 +260,7 @@ if ( !$errors )
 							// Add root user
 							$sdb->query ( '
 								INSERT INTO Users ( `Username`, `Password`, `Name`, `Email`, `IsAdmin` ) 
-								VALUES ( "'.($_POST['loginUsername']?$_POST['loginUsername']:'arenauser').'", md5("'.($_POST['loginPassword']?$_POST['loginPassword']:'arenapassword').'"), "'.($_POST['loginName']?$_POST['loginName']:'ArenaCM Admin').'", "'.($_POST['loginEmail']?$_POST['loginEmail']:'admin@'.$_SERVER['SERVER_NAME']).'", "1" )
+								VALUES ( "'.($_POST['loginUsername']?$_POST['loginUsername']:'arenauser').'", md5("'.($_POST['loginPassword']?$_POST['loginPassword']:'arenapassword').'"), "'.($_POST['loginName']?$_POST['loginName']:'Firegem Admin').'", "'.($_POST['loginEmail']?$_POST['loginEmail']:'admin@'.$_SERVER['SERVER_NAME']).'", "1" )
 							' );
 						}
 						
@@ -342,7 +342,7 @@ if ( !$errors )
 							// Add first content
 							$firstContent = new dbObject ( 'ContentElement', $sdb );
 							$firstContent->Title = 'Root';
-							$firstContent->MenuTitle = i18n( 'Welcome to ARENACM' );
+							$firstContent->MenuTitle = i18n( 'Welcome to Firegem' );
 							$firstContent->Parent = '0';
 							$firstContent->SystemName = 'root';
 							$firstContent->IsPublished = '1';
@@ -361,7 +361,7 @@ if ( !$errors )
 							$contentData = new dbObject ( 'ContentDataBig', $sdb );
 							$contentData->ContentID = $pbid;
 							$contentData->ContentTable = 'ContentElement';
-							$contentData->DataText = i18n( 'Welcome to ARENACM' );
+							$contentData->DataText = i18n( 'Welcome to Firegem' );
 							$contentData->Name = 'Hovedfelt';
 							$contentData->Type = 'text';
 							$contentData->IsVisible = '1';
@@ -421,7 +421,7 @@ if ( !$errors )
 							// Add root user
 							$cdb->query ( '
 								INSERT INTO Users ( `Username`, `Password`, `Name`, `Email`, `IsAdmin` ) 
-								VALUES ( "'.($_POST['loginUsername']?$_POST['loginUsername']:'arenauser').'", md5("'.($_POST['loginPassword']?$_POST['loginPassword']:'arenapassword').'"), "'.($_POST['loginName']?$_POST['loginName']:'ArenaCM Admin').'", "'.($_POST['loginEmail']?$_POST['loginEmail']:'admin@'.$_SERVER['SERVER_NAME']).'", "1" )
+								VALUES ( "'.($_POST['loginUsername']?$_POST['loginUsername']:'arenauser').'", md5("'.($_POST['loginPassword']?$_POST['loginPassword']:'arenapassword').'"), "'.($_POST['loginName']?$_POST['loginName']:'Firegem Admin').'", "'.($_POST['loginEmail']?$_POST['loginEmail']:'admin@'.$_SERVER['SERVER_NAME']).'", "1" )
 							' );
 						}
 						
@@ -518,7 +518,7 @@ if ( !$errors )
 						$contentData = new dbObject ( 'ContentDataBig', $sdb );
 						$contentData->ContentID = $pbid;
 						$contentData->ContentTable = 'ContentElement';
-						$contentData->DataText = i18n( 'Welcome to ARENACM' );
+						$contentData->DataText = i18n( 'Welcome to Firegem' );
 						$contentData->Name = 'Hovedfelt';
 						$contentData->Type = 'text';
 						$contentData->IsVisible = '1';

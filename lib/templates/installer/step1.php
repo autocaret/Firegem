@@ -24,7 +24,7 @@ Contributor(s): Hogne Titlestad, Thomas Wollburg, Inge Jørgensen, Ola Jensen,
 ?><!DOCTYPE html><?= header ( 'Content-type: text/html; charset=utf-8;' ); ?>
 <html>
 	<head>
-		<title><?= i18n ( 'Install ARENACM Site' ) ?></title>
+		<title><?= i18n ( 'Install Firegem Site' ) ?></title>
 		<meta http-equiv="content-type" content="text/html; charset=utf8;"/>
 		<link rel="stylesheet" href="admin/css/admin.css"/>
 	</head>
@@ -32,7 +32,7 @@ Contributor(s): Hogne Titlestad, Thomas Wollburg, Inge Jørgensen, Ola Jensen,
 		<div class="ModuleContainer">
 			<div class="Container">
 				<h1>
-					<?= i18n ( 'Install ARENACM Site' ) ?>
+					<?= i18n ( 'Install Firegem Site' ) ?>
 				</h1>
 				<form method="post" action="index.php?step=2" name="installform">
 					<div class="Container">
@@ -69,17 +69,17 @@ Contributor(s): Hogne Titlestad, Thomas Wollburg, Inge Jørgensen, Ola Jensen,
 						</div>
 						<div id="Block3" style="display:none;">
 							<h2>
-								Login information to ARENACM core database:
+								Login information to Firegem core database:
 							</h2>
 							<div class="Spacer"></div>
 							<p>
-								The first step in installing this ARENACM site is to 
-								enter in the ARENACM core database information, so that
+								The first step in installing this Firegem site is to 
+								enter in the Firegem core database information, so that
 								we can register the site with the core. All important 
 								settings are stored there.
 							</p>
 							<p>
-								NB: Make sure that the ARENACM core database user has 
+								NB: Make sure that the Firegem core database user has 
 								the privileges to create a new database for the site. 
 								If you do not have these privileges, then you will have 
 								to set up the site database manually.
@@ -111,7 +111,7 @@ Contributor(s): Hogne Titlestad, Thomas Wollburg, Inge Jørgensen, Ola Jensen,
 							</h2>
 							<p>
 								Now enter the site information that will be used to initialize the site.
-								As stated above, you need to create the site database manually if the ARENACM core
+								As stated above, you need to create the site database manually if the Firegem core
 								user has no "CREATE DATABASE" privileges.
 							</p>
 							<table cellspacing="0" cellpadding="4" width="600px">
@@ -149,7 +149,7 @@ Contributor(s): Hogne Titlestad, Thomas Wollburg, Inge Jørgensen, Ola Jensen,
 							<table cellspacing="0" cellpadding="4" width="600px">
 								<tr>
 									<td><strong>Account name:</strong></td>
-									<td><input type="text" value="<?= isset( $_POST['loginName'] ) ? $_POST['loginName'] : 'ArenaCM Admin' ?>" name="loginName"/></td>
+									<td><input type="text" value="<?= isset( $_POST['loginName'] ) ? $_POST['loginName'] : 'Firegem Admin' ?>" name="loginName"/></td>
 								</tr>
 								<tr>
 									<td><strong>Account email:</strong></td>
