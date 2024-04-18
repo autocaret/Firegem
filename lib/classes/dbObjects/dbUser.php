@@ -223,9 +223,13 @@ class dbUser extends dbObject
 			return $GLOBALS[ 'Cache']['SuperAdmin'][$this->ID];
 		}
 		if ( !$this->ID )
+		{
 			return false;
+		}
 		if ( !$this->groups )
+		{
 			$this->loadGroups ( );
+		}
 		if ( $this->groups ) 
 		{
 			foreach ( $this->groups as $group )

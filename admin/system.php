@@ -318,6 +318,8 @@ if ( $function )
  * Include and run the module
  */
 if ( file_exists( $moduleDir . $modulename . '/module.php' ) && require ( $moduleDir . $modulename . '/module.php' ) )
+{
 	$document->moduleOutput = $module->render ( );	
+}
 else ArenaDie ( 'Failed to open specified module.' );
 ?>

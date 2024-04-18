@@ -39,7 +39,7 @@ if ( $Session->AdminUser->_dataSource == 'core' )
 }
 else
 {
-	ArenaDie ( 'Access denied' );
+	ArenaDie ( 'Access denied.' );
 }
 
 ?>
