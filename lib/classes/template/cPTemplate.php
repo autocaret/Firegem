@@ -303,6 +303,9 @@ class cPTemplate
 	{
 		global $document;
 		
+		if( !defined( 'BASE_DIR' ) )
+			define( 'BASE_DIR', __DIR__ . '/../../../' );
+		
 		$output = $this->_template;
 		
 		// Template preprocessor
@@ -312,7 +315,7 @@ class cPTemplate
 			"([\W\w]*)".         // Accept any kind of character as params
 			"[\n]+/U";           // Terminate by line break
 		
-		while ( preg_match ( $preprocessor_pattern, $output, $matches ) )
+		while ( @preg_match ( $preprocessor_pattern, $output, $matches ) )
 		{
 			// Remove the line from the output
 			$output	= trim ( preg_replace ( 
