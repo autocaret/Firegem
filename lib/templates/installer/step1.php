@@ -39,7 +39,7 @@ Contributor(s): Hogne Titlestad, Thomas Wollburg, Inge Jørgensen, Ola Jensen,
 						<div id="Block1">
 							<table cellspacing="0" cellpadding="4" width="600px">
 								<tr>
-									<td width="130px"><strong>Arena Site Type:</strong></td>
+									<td width="130px"><strong>Firegem Site Type:</strong></td>
 									<td>
 										<input type="radio" name="siteType" value="0" onclick="document.getElementById('Block3').style='';document.getElementById('Block2').style.display='none'"/> <span>MultiSite</span>
 										<input type="radio" name="siteType" value="1" checked="checked" onclick="document.getElementById('Block3').style.display='none';document.getElementById('Block2').style=''"/> <span>SingleSite</span>
