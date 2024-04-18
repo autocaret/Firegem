@@ -265,7 +265,7 @@ class dbContent extends dbObject
 		else
 		{
 			$p = new dbContent ( );
-			$p->addClause ( 'WHERE', 'Parent=\'0\' AND !IsDeleted AND !IsTemplate AND ID=MainID AND Version=VersionPublished AND Language=\'' . $this->_language . '\'' );
+			$p->addClause ( 'WHERE', 'Parent=\'0\' AND !IsDeleted AND !IsTemplate AND ID=MainID AND ( Version=VersionPublished OR ( Version IS NULL AND VersionPublished IS NULL ) ) AND Language=\'' . $this->_language . '\'' );
 				
 			if ( $o = $p->findSingle ( ) )
 			{
