@@ -29,3 +29,46 @@
 	min-height: 75%;
 	background-color: #2f2460;
 }
+
+
+.HierarchyCanvas
+{
+	position: absolute;
+	z-index: 2;
+	pointer-events: none;
+	left: 0;
+	top: 0;
+}
+
+.LevelPage 
+{
+    text-align: center;
+}
+
+.LevelNameBlock 
+{
+    border-radius: 5px;
+    color: white;
+    background-color: #2f2460;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    margin: 10px 0 10px 0;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.LevelNameBlock:hover
+{
+	background-color: #231b46;
+}
+
+.LevelChildren 
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    gap: 20px;
+}
