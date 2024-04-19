@@ -220,6 +220,11 @@ class dbContent extends dbObject
 	**/
 	function getRootContent ( $options = false )
 	{
+		if( !isset( $this ) ) 
+		{
+			$th = new dbContent();
+			return $th->getRootContent( $options );
+		}
 		if ( $options[ 'editmode' ] == 1 || $this->_editmode )
 		{
 			$p = new dbContent ( );

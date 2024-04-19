@@ -9,3 +9,23 @@
 	overflow: auto;
 	background: #303030;
 }
+
+.FiregemCanvas > .Hierarchy
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-height: 25%;
+	background-color: #834a89;
+}
+
+.FiregemCanvas > .DomContent
+{
+	position: absolute;
+	top: 25%;
+	left: 0;
+	width: 100%;
+	min-height: 75%;
+	background-color: #2f2460;
+}
