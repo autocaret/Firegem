@@ -43,7 +43,7 @@ window.extContent = {
 				
 				if( level.type == 'add' )
 				{
-					level.dom.innerHTML = '<div class="LevelNameBlock AddPage">' + level.page.MenuTitle + '</div>';
+					level.dom.innerHTML = '<div class="LevelNameBlock AddPage">+</div>';
 				}
 				else
 				{
@@ -70,6 +70,14 @@ window.extContent = {
 				self.domContent.style.height = 'calc(100% - ' + self.domHierarchy.scrollHeight + 'px)';
 				self.domContent.style.top = self.domHierarchy.scrollHeight + 'px';
 			}
+			if( level.current )
+			{
+				level.dom.querySelector( '.LevelNameBlock' ).classList.add( 'Current' );
+			}
+			else
+			{
+				level.dom.querySelector( '.LevelNameBlock' ).classList.remove( 'Current' );
+			}
 			if( !level.childAdd )
 			{
 				level.childAdd = {
@@ -92,6 +100,11 @@ window.extContent = {
 			}
 		}
 		
+		function clearConnectors()
+		{
+			ctx.clearRect( 0, 0, self.domHierarchyCanvas.offsetWidth, self.domHierarchyCanvas.offsetHeight );
+		}
+		
 		function drawConnectors( level )
 		{
 			let offset = self.domHierarchyCanvas.getBoundingClientRect();
@@ -107,6 +120,10 @@ window.extContent = {
 				
 				let fromMidX = fromR.left + ( from.offsetWidth >> 1 );
 				let toMidX = toR.left + ( to.offsetWidth >> 1 );
+				if( Math.abs( toMidX - fromMidX ) <= 1 )
+				{
+					toMidX = fromMidX;
+				}
 				
 				let points = [
 					{ x: fromMidX, y: fromR.top + from.offsetHeight },
@@ -138,15 +155,80 @@ window.extContent = {
 		}
 		
 		drawLevel( self.pages );
+		clearConnectors();
+		drawConnectors( self.pages );
 		setTimeout( function()
 		{
+			clearConnectors();
 			drawConnectors( self.pages );
-		}, 0 );
+		}, 100 );
 		
 	},
 	setCurrentLevel( lid )
 	{
-		console.log( 'New MainID IS ' + lid );
+		let self = this;
+		let m = new XMLHttpRequest();
+		m.open( 'POST', 'admin.php?module=extensions&extension=content&action=setpage&page=' + lid, true );
+		m.setRequestHeader( 'Content-Type', 'application/json' );
+		m.onload = function()
+		{
+			let resp = JSON.parse( this.responseText );
+			if( resp.code == 200 && resp.response )
+			{
+				self.updatePages( resp.response );
+			}
+			self.refresh();
+		}
+		m.send();
+	},
+	updatePages( newPages )
+	{
+		let self = this;
+		
+		console.log( newPages );
+		
+		function setLevel( old, incoming = false )
+		{
+			if( !incoming )
+			{
+				return;
+			}
+			
+			old.current = incoming.current;
+			old.childAdd = incoming.childAdd;
+			
+			let tmp = old.children;
+			if( !tmp ) return;
+			old.children = incoming.children;
+			for( let a = 0; a < tmp.length; a++ )
+			{
+				let found = false;
+				for( let b = 0; b < old.children.length; b++ )
+				{
+					if( tmp[ a ].page.MainID == old.children[ b ].page.MainID )
+					{
+						found = true;
+						old.children[ b ].dom = tmp[ a ].dom;
+						// Recurse
+						setLevel( tmp[ a ], old.children[ b ] );
+						break;
+					}
+				}
+				// Remove obsolete one
+				if( !found )
+				{
+					if( tmp[ a ].dom )
+						tmp[ a ].dom.parentNode.removeChild( tmp[ a ].dom );
+				}
+			}
+		}
+		
+		if( !self.pages )
+		{
+			self.pages = newPages;
+			return;
+		}
+		setLevel( self.pages, newPages );
 	},
 	load()
 	{
@@ -159,7 +241,7 @@ window.extContent = {
 			let resp = JSON.parse( this.responseText );
 			if( resp.code == 200 && resp.response )
 			{
-				self.pages = resp.response;
+				self.updatePages( resp.response );
 			}
 			self.refresh();
 		}

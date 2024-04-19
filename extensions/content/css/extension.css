@@ -68,7 +68,9 @@
 .LevelNameBlock.AddPage
 {
 	border-radius: 100%;
-	padding: 10px 8px;
+    padding: 5px 6px;
+    height: 24px;
+    line-height: 8px;
 }
 
 .LevelNameBlock:hover
