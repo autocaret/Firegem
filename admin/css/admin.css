@@ -22,22 +22,29 @@
 
 #Content
 {
+	box-sizing: border-box;
 	background: #f5f5f5;
-	min-height: 500px;
-	position: relative;
 	border-top: 1px solid #a0a0a0;
-	top: 138px;
-	left: 0px;
 	padding: 5px 0 0 0;
+	position: absolute;
+	top: 138px;
+	width: 100%;
+	left: 0;
+	height: calc(100% - 138px);
 }
 
 #Footer
 {
+	position: absolute;
+	top: calc(100% - 45px);
+	height: 45px;
+	left: 0;
+	width: 100%;
 	background: url(../gfx/footer.jpg) repeat-x;
-	min-height: 10px;
 	padding: 16px;
 	text-align: left;
 	color: #444;
+	box-sizing: border-box;
 }
 
 #ModuleList
@@ -181,6 +188,17 @@
 {
 	display: block;
 	margin: 4px 10px;
+}
+
+#Content > .ModuleContainer 
+{
+	position: absolute;
+	top: 5px;
+	left: 0;
+	width: calc(100% - 20px);
+	height: calc(100% - 60px);
+	overflow: auto;
+	border-radius: 5px;
 }
 
 .Container
