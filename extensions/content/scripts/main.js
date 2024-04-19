@@ -34,25 +34,61 @@ window.extContent = {
 		{
 			
 		}
-		
 		function drawLevel( level )
 		{
 			if( !level.dom )
 			{
 				level.dom = document.createElement( 'div' );
 				level.dom.className = 'LevelPage';
-				if( !level.parent ) level.parent = self.domHierarchy;
-				level.dom.innerHTML = '<div class="LevelNameBlock">' + level.page.MenuTitle + '</div>';
+				
+				if( level.type == 'add' )
+				{
+					level.dom.innerHTML = '<div class="LevelNameBlock AddPage">' + level.page.MenuTitle + '</div>';
+				}
+				else
+				{
+					if( !level.parent ) level.parent = self.domHierarchy;
+					let cr = '';
+					if( level.current )
+						cr = ' Current';
+					level.dom.innerHTML = '<div class="LevelNameBlock' + cr + '">' + level.page.MenuTitle + '</div>';
+				}
+				level.dom.querySelector( '.LevelNameBlock' ).addEventListener( 'click', () => {
+					extContent.setCurrentLevel( level.page.MainID );
+				} );
 				
 				level.dom.subs = document.createElement( 'div' );
 				level.dom.subs.className = 'LevelChildren';
 				level.dom.appendChild( level.dom.subs );
 				level.parent.appendChild( level.dom );
+				
+				// Move dom content
+				if( self.domHierarchy.offsetHeight < self.domHierarchy.scrollHeight )
+				{
+					self.domHierarchy.style.height = self.domHierarchy.scrollHeight + 'px';
+				}
+				self.domContent.style.height = 'calc(100% - ' + self.domHierarchy.scrollHeight + 'px)';
+				self.domContent.style.top = self.domHierarchy.scrollHeight + 'px';
 			}
-			for( let a = 0; a < level.children.length; a++ )
+			if( !level.childAdd )
 			{
-				level.children[ a ].parent = level.dom.subs;
-				drawLevel( level.children[ a ] );
+				level.childAdd = {
+					type: 'add',
+					page: { MenuTitle: 'Add' },
+					children: false
+				};
+				if( level.children )
+				{
+					level.children.push( level.childAdd );
+				}
+			}
+			if( level.children )
+			{
+				for( let a = 0; a < level.children.length; a++ )
+				{
+					level.children[ a ].parent = level.dom.subs;
+					drawLevel( level.children[ a ] );
+				}
 			}
 		}
 		
@@ -102,8 +138,15 @@ window.extContent = {
 		}
 		
 		drawLevel( self.pages );
-		drawConnectors( self.pages );
+		setTimeout( function()
+		{
+			drawConnectors( self.pages );
+		}, 0 );
 		
+	},
+	setCurrentLevel( lid )
+	{
+		console.log( 'New MainID IS ' + lid );
 	},
 	load()
 	{

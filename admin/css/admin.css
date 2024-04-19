@@ -173,13 +173,11 @@
 {
 	color: #ffffff;
 	text-decoration: none;
-	text-transform: uppercase;
 }
 
 .ModuleTabActive a, .ModuleTabActive a:active, .ModuleTabActive a:visited
 {
 	color: #ffffff;
-	text-transform: uppercase;
 	font-weight: bold;
 	text-decoration: none;
 }

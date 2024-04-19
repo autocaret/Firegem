@@ -1,5 +1,7 @@
 <?php
 
+global $Session;
+
 require_once( 'lib/classes/dbObjects/dbContent.php' );
 
 $response = ( object )[ 'response' => '', 'code' => 0 ];
@@ -26,6 +28,8 @@ function contentToPage( $c )
 
 function loadSubs( $d, &$pages )
 {
+	global $Session;
+	
 	$c = new dbContent();
 	$c->addClause( 'WHERE', '`Parent`=\'' . $d->MainID . '\' AND `MainID`!=`ID`' );
 	$c->addClause( 'ORDER BY', '`SortOrder` ASC, ID ASC' );
@@ -35,13 +39,25 @@ function loadSubs( $d, &$pages )
 		foreach( $subs as $sub )
 		{
 			$o = ( object )[ 'page' => contentToPage( $sub ), 'children' => [] ];
+			if( $Session->CurrentPage == $o->page->MainID )
+				$o->current = true;
 			loadSubs( $sub, $o->children );
 			$pages[] = $o;
 		}
 	}
 }
 
+if( !isset( $Session->CurrentPage ) )
+{
+	$Session->Set( 'CurrentPage', $c->MainID );
+}
+
+
 $pages = ( object )[ 'page' => contentToPage( $c ), 'children' => [] ];
+if( $c->MainID == $Session->CurrentPage )
+{
+	$pages->current = true;
+}
 loadSubs( $pages->page, $pages->children );
 
 $response->code = 200;
