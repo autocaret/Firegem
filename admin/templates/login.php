@@ -39,6 +39,7 @@ Contributor(s): Hogne Titlestad, Thomas Wollburg, Inge Jørgensen, Ola Jensen,
 		<link rel="stylesheet" href="admin/css/login_ie7.css"/>
 		<![endif]-->
 		<script type="text/javascript" src="lib/javascript/arena-lib.js"></script>
+		<script type="text/javascript" src="lib/javascript/modaldialog.js"></script>
 		<script type="text/javascript" src="lib/javascript/bajax.js"></script>
 		<?if(defined('Firegem_ADMIN_JAVASCRIPT')){?>
 		<script src="<?= Firegem_ADMIN_JAVASCRIPT ?>"></script>
