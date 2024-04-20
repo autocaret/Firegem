@@ -54,13 +54,10 @@
     html button, html button:hover
     {
     	color: black;
-    	border-bottom: 1px solid #b0b0b0;
-    	border-right: 1px solid #c0c0c0;
-    	border-left: 1px solid #c0c0c0;
-    	border-top: 1px solid #c0c0c0;
-    	border-radius: 3px;
-    	-moz-border-radius: 3px;
-    	-webkit-border-radius: 3px;
+    	border: 1px solid #e8e8e8;
+    	border-radius: 5px;
+    	-moz-border-radius: 5px;
+    	-webkit-border-radius: 5px;
     	background: #eeeeee;
     	padding: 4px 6px;
     	font-size: 16px;
@@ -382,9 +379,8 @@ button, div.Button
 	-webkit-border-radius: 2px;
 	margin: 0 2px 2px 0;
 	vertical-align: middle;
-	border: 1px solid #c0c0c0;
-	box-shadow: inset 0px -1px 6px rgba(0,0,0,0.1);
-	background: #efefef;
+	border: 1px solid #e8e8e8;
+	background: #eeeeee;
 	color: #000000;
 	font-weight: normal;
 	padding: 3px 4px 3px 4px;
