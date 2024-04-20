@@ -86,6 +86,31 @@
 	left: 0px;
 }
 
+html .ModalContents
+{
+	box-shadow: 0px 3px 30px rgba(0,0,0,0.4);
+	border-radius: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	padding: 0 !important;
+	border: none !important;
+	overflow: hidden;
+	transition: transform 0.3s;
+	transform: translate(-50%,-50%) rotate3d(1,0,0,90deg);
+}
+.ModalContents > .SubContainer
+{
+	border: 0;
+	border-radius: 0px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	overflow: auto;
+}
+html .ModalContents.Showing
+{
+	transform: translate(-50%,-50%) rotate3d(0,0,0,0deg);
+}
+
 .ModuleTab
 {
 	cursor: hand; 

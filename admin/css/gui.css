@@ -684,11 +684,6 @@ li .ButtonBox
 	box-shadow: rgba(0,0,0,0.6) 0px 2px 5px;
 	-webkit-transition: all 0.25s;
 }
-.ModalContents
-{
-	-webkit-transition: all 0.25s;
-}
-
 input[type=text],input[type=password]
 {
 	-webkit-transition: all 0.2s;
