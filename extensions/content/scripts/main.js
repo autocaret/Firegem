@@ -144,8 +144,6 @@ window.extContent = {
 				ctx.beginPath();
 				ctx.moveTo( points[0].x, points[0].y );
 				ctx.lineTo( points[1].x, points[1].y );
-				//ctx.quadraticCurveTo( points[ 1 ].x, points[ 1 ].y, ( points[ 1 ].x + points[ 2 ].x ) / 2, ( points[ 1 ].y + points[ 2 ].y ) / 2 );
-				//ctx.quadraticCurveTo( points[ 2 ].x, points[ 2 ].y, ( points[ 2 ].x + points[ 3 ].x ) / 2, ( points[ 2 ].y + points[ 3 ].y ) / 2 );
 				ctx.lineTo( points[2].x, points[2].y );
 				ctx.lineTo( points[3].x, points[3].y );
 				ctx.stroke();

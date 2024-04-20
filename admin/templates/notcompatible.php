@@ -37,14 +37,7 @@ Contributor(s): Hogne Titlestad, Thomas Wollburg, Inge Jørgensen, Ola Jensen,
 	</head>
 	<body>
 
-    	<!--[if IE 6]>
-		<link rel="stylesheet" href="admin/css/login_ie6.css"/>
-		<![endif]-->
-		<!--[if IE 7]>
-		<link rel="stylesheet" href="admin/css/login_ie7.css"/>
-		<![endif]-->
-
-		<div id="UnderContent">
+    	<div id="UnderContent">
 		</div>
 		
 		<div id="CenterBox">
@@ -54,24 +47,24 @@ Contributor(s): Hogne Titlestad, Thomas Wollburg, Inge Jørgensen, Ola Jensen,
 				<div class="Content">
 				
 					<h2>
-						Ikke kompatibel nettleser
+						Non compatible web browser
 					</h2>
 					<p>
-						Din nettleser (<?= $_SERVER[ 'HTTP_USER_AGENT' ] ?>) er ikke støttet. Vennligst benytt deg av en av
-						følgende nettlesere:
+						Your web browser (<?= $_SERVER[ 'HTTP_USER_AGENT' ] ?>) is not supported. Please use one of the
+						following web browsers:
 					</p>
 					<ul>
 						<li>
-							<a href="http://www.getfirefox.com" target="_blank">Firefox versjon 3 eller høyere</a>
+							<a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank">Firefox</a>
 						</li>
 						<li>
-							<a href="http://www.microsoft.com/windows/internet-explorer/default.aspx" target="_blank">Internet explorer version 7 eller høyere</a>
+							<a href="https://www.google.com/chrome/" target="_blank">Google Chrome</a>
 						</li>
 					</ul>
 				</div>
 				
 				<div class="Footer">
-					Blest ARENA v<?= ARENA_VERSION ?> (c) 2006-2009 | ARENA er et produkt av Blest AS, <a href="http://www.blest.no" target="_blank">www.blest.no</a> 
+					Firegem © 2023-2024 Aurae Interactive
 				</div>
 				
 				
