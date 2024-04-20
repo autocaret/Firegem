@@ -274,6 +274,11 @@ class cDocument extends cPTemplate
 		return false;
 	}
 	
+	function renderFieldGroup( $group )
+	{
+		return $this->page->renderFieldGroup( $group );
+	}
+	
 	function renderExtraFields ( $options = false )
 	{
 		if ( $this->page )

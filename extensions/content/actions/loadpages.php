@@ -31,7 +31,7 @@ function loadSubs( $d, &$pages )
 	global $Session;
 	
 	$c = new dbContent();
-	$c->addClause( 'WHERE', '`Parent`=\'' . $d->MainID . '\' AND `MainID`!=`ID`' );
+	$c->addClause( 'WHERE', '`Parent`=\'' . $d->MainID . '\' AND `MainID`!=`ID` AND !IsDeleted' );
 	$c->addClause( 'ORDER BY', '`SortOrder` ASC, ID ASC' );
 
 	if( $subs = $c->find() )

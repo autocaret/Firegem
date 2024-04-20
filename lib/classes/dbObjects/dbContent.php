@@ -1101,11 +1101,16 @@ class dbContent extends dbObject
 		return '';
 	}
 	
+	function renderFieldGroup( $group )
+	{
+		return $this->renderExtraFields( false, ( object )[ 'group' => $group ] );
+	}
+	
 	/**
 	 * Render all HTML from extrafields
 	 * arranged in content groups
 	**/
-	function renderExtraFields ( $options = false )
+	function renderExtraFields ( $options = false, $advanced = false )
 	{
 		global $document;
 		$this->loadExtraFields ( $options );
@@ -1130,6 +1135,11 @@ class dbContent extends dbObject
 			{
 				$fkey = $this->{ '_field_' . $k }->ContentGroup;
 				
+				if( $advanced )
+				{
+					if( $advanced->group && $fkey != $advanced->group ) continue;
+				}
+				
 				// Mindful of replacement fields
 				if ( property_exists ( $this, "_replacement_$k" ) && $this->{ '_replacement_' . $k } )
 				{
@@ -1146,6 +1156,11 @@ class dbContent extends dbObject
 		$tlSet = isset ( $GLOBALS[ 'TableLayout' ] );
 		foreach ( $this->_contentGroups as $g )
 		{
+			if( $advanced )
+			{
+				if( $advanced->group && $g != $advanced->group ) continue;
+			}
+			
 			if ( $tlSet )
 			{
 				$tl = $GLOBALS[ 'TableLayout' ];
@@ -1194,6 +1209,10 @@ class dbContent extends dbObject
 		// Load in resources (css/js)
 		foreach ( $this->_contentGroups as $g )
 		{
+			if( $advanced )
+			{
+				if( $advanced->group && $g != $advanced->group ) continue;
+			}
 			if ( $this->_scripts[ $g ] )
 				foreach ( $this->_scripts[ $g ] as $s )
 					$document->addHeadScript ( $s );
