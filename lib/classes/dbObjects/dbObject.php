@@ -2555,7 +2555,7 @@ class dbObject
 				(
 					SELECT 
 						b.ContentID, b.Type, b.DataText, '' AS `DataInt`, \"\" AS `DataString`, '' AS `DataDouble`, 'Big' AS `DataTable`, 
-						\"\" AS `DataMixed`, b.SortOrder, b.ID, b.Name, b.ContentGroup, b.IsVisible, b.AdminVisibility, b.IsGlobal
+						\"\" AS `DataMixed`, b.SortOrder, b.ID, b.Name, b.ClassName, b.ContentGroup, b.IsVisible, b.AdminVisibility, b.IsGlobal
 					FROM 
 						`ContentDataBig` b{$contentoptions1a} $extra1a
 					WHERE 
@@ -2568,7 +2568,7 @@ class dbObject
 				(
 					SELECT 
 						c.ContentID, c.Type, \"\" AS `DataText`, c.DataInt, c.DataString, c.DataDouble, 'Small' AS `DataTable`, 
-						c.DataMixed, c.SortOrder, c.ID, c.Name, c.ContentGroup, c.IsVisible, c.AdminVisibility, c.IsGlobal
+						c.DataMixed, c.SortOrder, c.ID, c.Name, c.ClassName, c.ContentGroup, c.IsVisible, c.AdminVisibility, c.IsGlobal
 					FROM 
 						`ContentDataSmall` c{$contentoptions1b} $extra2a
 					WHERE 

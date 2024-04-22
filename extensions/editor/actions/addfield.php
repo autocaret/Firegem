@@ -68,6 +68,7 @@ if ( $content->load ( $_REQUEST[ 'cid' ] ) )
 		$ext->Name = safeFieldName ( $_REQUEST[ 'Name' ] );
 		$ext->ContentGroup = $_REQUEST[ 'ContentGroup' ];
 		$ext->SortOrder = ( isset( $_REQUEST[ 'SortOrder' ] ) && $_REQUEST['SortOrder'] > 0 ) ? $_REQUEST[ 'SortOrder' ] : $max;
+		$ext->ClassName = $_REQUEST[ 'ClassName' ];
 		$ext->IsVisible = '1';
 		$ext->Type = trim ( $_REQUEST[ 'Type' ] );
 		if ( strstr ( $ext->Type, '|' ) )

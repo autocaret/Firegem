@@ -44,7 +44,7 @@ if ( !$info->load ( ) )
 $versions = Array (
 	'1.99.1', '1.99.4', '1.99.5', '1.99.6', '1.99.7', '1.99.8', '1.99.9', 
 	'2.0.10', '2.0.12', '2.0.13', '2.0.14', '2.0.15', '2.0.16', '2.0.17', 
-	'2.0.18'
+	'2.0.18', '2.5.0'
 );
 foreach ( $versions as $version )
 {
@@ -267,6 +267,29 @@ foreach ( $versions as $version )
 							ADD `Notes` text NOT NULL default ""
 							AFTER `SortOrder`
 						' );
+					}
+				}
+				break;
+			case '2.5.0':
+				$tables = [ 'ContentDataBig', 'ContentDataSmall' ];
+				foreach( $tables as $tb )
+				{
+					$t = new cDatabaseTable ( $tb );
+					if ( $t->load () )
+					{
+						$hasCN = false;
+						foreach ( $t->getFieldNames () as $name )
+						{
+							if ( $name == 'ClassName' ) $hasCN = true;
+						}
+						if ( !$hasCN )
+						{
+							$db->query ( '
+								ALTER TABLE `' . $tb . '`
+								ADD `ClassName` varchar(255) default \'\' 
+								AFTER `Name`
+							' );
+						}
 					}
 				}
 				break;

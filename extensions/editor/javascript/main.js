@@ -763,6 +763,7 @@ function executeAddField ( )
 	aja.addVar ( 'Type', type );
 	aja.addVar ( 'IsGlobal', global );
 	aja.addVar ( 'SortOrder', frm.SortOrder.value );
+	aja.addVar ( 'ClassName', frm.ClassName.value );
 	aja.addVar ( 'cid', ge ( 'PageID' ).value );
 	if ( type == 'extension' && frm.fieldextension )
 		aja.addVar ( 'fieldextension', frm.fieldextension.value );
@@ -821,6 +822,7 @@ function executeEditField ( )
 	aja.addVar ( 'ft', frm.field_type.value );
 	aja.addVar ( 'Name', frm.Name.value );
 	aja.addVar ( 'SortOrder', frm.SortOrder.value );
+	aja.addVar ( 'ClassName', frm.ClassName.value );
 	if ( type == 'extension' && frm.fieldextension )
 		aja.addVar ( 'fieldextension', frm.fieldextension.value );
 	aja.addVar ( 'ContentGroup', contentgroup );

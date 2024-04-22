@@ -705,6 +705,10 @@ class dbContent extends dbObject
 	{
 		global $Session;
 		
+		$cln = '';
+		if( $fieldObject->ClassName )
+			$cln = ' class="' . $fieldObject->ClassName . '"';
+		
 		switch ( $fieldObject->Type )
 		{
 			case 'file':
@@ -713,7 +717,7 @@ class dbContent extends dbObject
 				$file = new dbFile ( );
 				if ( $file->load ( $fieldObject->DataInt ) )
 				{
-					return "\n\n<div id=\"{$fieldObject->Name}\">" . rcFile ( $file ) . "</div>\n\n";	
+					return "\n\n<div id=\"{$fieldObject->Name}\"$cln>" . rcFile ( $file ) . "</div>\n\n";	
 				}
 				break;
 				
@@ -753,7 +757,7 @@ class dbContent extends dbObject
 					{
 						$this->Body = $sent;
 					}
-					else $this->$responsefield = '<div id="' .  $responsefield . '">' . $sent . '</div>';
+					else $this->$responsefield = '<div id="' .  $responsefield . '"' . $cln . '>' . $sent . '</div>';
 				}
 				break;
 			case 'pagelisting':
@@ -1007,6 +1011,9 @@ class dbContent extends dbObject
 						$exs = '<a href="' . $fieldObject->DataString . '"' . $op[ floor ( $fieldObject->DataDouble ) ] . '>';
 						$exe = '</a>';
 					} else $exs = $exe = '';
+					
+					$class = strlen( $class ) > 0 ? "$class {$fieldObject->ClassName}" : $fieldObject->ClassName;
+					
 					return "\n\n<div id=\"{$fieldObject->Name}\"" . ( $class ? ( ' class="' . $class . '"' ) : '' ) . ">{$exs}<img alt=\"{$fieldObject->Name}\" src=\"" . $img . "\" style=\"width: " . $w . "px; height: " . $h . "px\"/>$exe</div>";
 				}
 				return '';
@@ -1021,7 +1028,7 @@ class dbContent extends dbObject
 						$field =& $fieldObject;
 						$module = '';
 						include ( $target );
-						return '<div id="' . $fieldObject->Name . '">' . $module . '</div>';
+						return '<div id="' . $fieldObject->Name . '"' . $cln . '>' . $module . '</div>';
 					}
 				}
 				return '';
@@ -1039,7 +1046,9 @@ class dbContent extends dbObject
 						include ( $target );
 						$class = '';
 						if( isset( $fieldObject->Class ) )
-							$class = ' class="' . $fieldObject->Class . '"';
+							$class = $fieldObject->Class;
+						$class = strlen( $class ) > 0 ? "$class {$fieldObject->ClassName}" : $fieldObject->ClassName;
+						$class = strlen( $class ) > 0 ? ' class="' . $class . '"' : '';
 						return '<div id="' . $fieldObject->Name . '"' . $class . '>' . $extension . '</div>';
 					}
 				}
@@ -1060,7 +1069,7 @@ class dbContent extends dbObject
 				if ( $objects = $ob->getObjects ( ) )
 				{
 					include_once ( 'lib/classes/dbObjects/include/objectconnection_content.php' );
-					$str = "<div id=\"{$fieldObject->Name}\">";
+					$str = "<div id=\"{$fieldObject->Name}\"$cln>";
 					foreach ( $objects as $object )
 					{
 						$str .= renderObject ( $object );
@@ -1071,10 +1080,11 @@ class dbContent extends dbObject
 				break;
 			
 			case 'whitespace':
-				return "<div id=\"{$fieldObject->Name}\" class=\"Whitespace\"></div>";	
+				$ex = $fieldObject->ClassName ? ( ' ' . $fieldObject->ClassName ) : '';
+				return "<div id=\"{$fieldObject->Name}\" class=\"Whitespace' . $ex . '\"></div>";	
 			
 			case 'varchar':
-				return "<div id=\"{$fieldObject->Name}\">{$fieldObject->DataString}</div>";
+				return "<div id=\"{$fieldObject->Name}\"$cln>{$fieldObject->DataString}</div>";
 			
 			case 'script':
 				// New method - just throw the script onto the page
@@ -1094,7 +1104,7 @@ class dbContent extends dbObject
 			
 			default:
 				if ( $fieldObject->DataText )
-					return "<div id=\"{$fieldObject->Name}\">" . $this->ProcessText ( $fieldObject->DataText ) . "</div>";
+					return "<div id=\"{$fieldObject->Name}\"$cln>" . $this->ProcessText ( $fieldObject->DataText ) . "</div>";
 				else return $this->renderParentExtraField ( $fieldObject, $options = false );
 				return '';
 		}

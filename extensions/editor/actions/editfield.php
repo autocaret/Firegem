@@ -72,6 +72,7 @@ if ( $content->load ( $_REQUEST[ 'cid' ] ) )
 					$newField->ContentID = $fld->ContentID;
 					$newField->ContentTable = 'ContentElement';
 					$newField->SortOrder = $fld->SortOrder;
+					$newField->ClassName = $_REQUEST[ 'ClassName' ];
 					$newField->Name = safeFieldName ( $_REQUEST[ 'Name' ] );
 					$newField->Type = $_REQUEST[ 'Type' ];
 					$newField->IsGlobal = $_REQUEST[ 'IsGlobal' ];
@@ -93,6 +94,7 @@ if ( $content->load ( $_REQUEST[ 'cid' ] ) )
 			$fld->Name = safeFieldName ( $_REQUEST[ 'Name' ] );
 			$fld->IsGlobal = $_REQUEST[ 'IsGlobal' ];
 			$fld->SortOrder = $_REQUEST[ 'SortOrder' ];
+			$fld->ClassName = $_REQUEST[ 'ClassName' ];
 			$fld->ContentGroup = $_REQUEST[ 'ContentGroup' ];
 			$fld->IsVisible = '1';
 			$fld->AdminVisibility = $_REQUEST[ 'adminvisibility' ];

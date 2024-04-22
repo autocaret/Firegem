@@ -40,11 +40,18 @@
 	height: 45px;
 	left: 0;
 	width: 100%;
-	background: url(../gfx/footer.jpg) repeat-x;
-	padding: 16px;
+	background-color: #2f2460;
+	padding: 14px 12px;
 	text-align: left;
 	color: #444;
 	box-sizing: border-box;
+	color: #fefefe;
+}
+
+#Footer a
+{
+	color: white;
+	font-weight: bold;
 }
 
 #ModuleList

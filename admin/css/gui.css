@@ -139,7 +139,7 @@ h2.BlockHead
 	border-left: 1px solid #c3c3c3;
 	border-right: 1px solid #c3c3c3;
 	border-bottom: 1px solid #eee;
-	background: #f8f8f8 url('../gfx/background_contentelement.png') repeat-x;
+	background-color: #f0f0f0;
 	padding: 8px;
 	-moz-border-radius: 3px 3px 0 0;
 	-webkit-border-top-left-radius: 3px;
@@ -478,7 +478,7 @@ form
 	border: 0;
 	display: block;
 	clear: both;
-	background: #729FCF;
+	background: #834a8952;
 	border-radius: 3px;
 	margin: 5px 0 5px 0;
 }

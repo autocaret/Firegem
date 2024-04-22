@@ -257,6 +257,19 @@ h4 a, h4 a:hover
 	cursor: pointer;
 }
 
+h4 span.Classname
+{
+	background: #229933;
+	color: white;
+	padding: 2px;
+	display: inline-block;
+	border-radius: 4px;
+	font-size: 9px;
+	position: relative;
+	margin: 0 0 0 2px;
+	top: -1px;
+}
+
 h4 .Buttons
 {
 	display: block;

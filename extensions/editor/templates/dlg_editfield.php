@@ -73,6 +73,22 @@ Contributor(s): Hogne Titlestad, Thomas Wollburg, Inge Jørgensen, Ola Jensen,
 					</td>
 				</tr>
 			</table>
+			<table class="LayoutColumns">
+				<tr>
+					<td>
+						<p>
+							<?= i18n ( 'Field class name' ) ?>:
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="SubContainer" style="padding: <?= MarginSize ?>px; height: 23px">
+							<input type="text" value="<?= $this->field->ClassName ?>" name="ClassName" size="25">
+						</div>
+					</td>
+				</tr>
+			</table>
 			<div class="SpacerSmallColored"></div>
 			<div class="Spacer"></div>
 			<p>

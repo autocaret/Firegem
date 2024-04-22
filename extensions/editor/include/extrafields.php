@@ -169,6 +169,11 @@ function renderExtraFields ( $obj )
 					$tpl->content =& $obj;
 					$tpl->fieldID = "Extra_{$field->ID}_{$tabletype}_{$dataField}";
 					$tpl->fieldGroup = $field->ContentGroup;
+					$cn = '';
+					if( isset( $field->ClassName ) && strlen( $field->ClassName ) > 0 )
+					{
+						$cn = '<span class="Classname">' . $field->ClassName . '</span>';
+					}
 					$tpl->top = '
 						<h4>
 							<div class="Buttons">
@@ -177,7 +182,7 @@ function renderExtraFields ( $obj )
 								<button title="Flytt opp" type="button" onclick="reorderField ( \'' . $field->ID . '\', \'' . $tpl->fieldType . '\', -1 )"><img src="admin/gfx/smallbutton_up.png"></button>
 								<button title="Flytt ned" type="button" onclick="reorderField ( \'' . $field->ID . '\', \'' . $tpl->fieldType . '\', 1 )"><img src="admin/gfx/smallbutton_down.png"></button>
 							</div>
-							<a onclick="javascript: scrollTo ( 0, getElementTop ( this ) );">' . str_replace ( '_', ' ', $field->Name ) . ' (' . i18n ( 'in' ) . ' ' . $tpl->fieldGroup . '):</a>
+							<a onclick="javascript: scrollTo ( 0, getElementTop ( this ) );">' . str_replace ( '_', ' ', $field->Name ) . ' (' . i18n ( 'in' ) . ' ' . $tpl->fieldGroup . ')' . $cn . ':</a>
 						</h4>
 					';
 					$modstr_ .= '<div class="ExtraFieldDiv">' . $tpl->render ( ) . '</div>' . 

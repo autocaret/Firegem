@@ -70,14 +70,14 @@ $lang = new dbObject ( 'Languages' );
 $lang->IsDefault = 1;
 if ( !$lang->load ( ) )
 {
-	$lang->Name = 'no';
-	$lang->NativeName = 'Norsk';
+	$lang->Name = 'en';
+	$lang->NativeName = 'English';
 	$lang->IsDefault = '1';
-	$lang->save ( );
+	$lang->save();
 }
 if ( !defined ( 'ADMIN_LANGUAGE' ) )
 {
-	define ( 'ADMIN_LANGUAGE', $lang->Name );
+	define ( 'ADMIN_LANGUAGE', 'en' ); //$lang->Name );
 }
 if ( $Session->Get ( 'GroupLanguageSetting' ) )
 	$Session->Set ( 'GroupLanguageSetting', $lang->Name );
