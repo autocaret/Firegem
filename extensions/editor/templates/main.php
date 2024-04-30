@@ -158,38 +158,30 @@ Contributor(s): Hogne Titlestad, Thomas Wollburg, Inge Jørgensen, Ola Jensen,
 			</td>
 			<td class="Column">
 				<h1 id="EditHeadline">
-					<table cellspacing="0" cellpadding="0" width="100%">
-						<tr>
-							<td width="18" valign="middle">
-								<img src="admin/gfx/icons/page_edit.png" style="margin: 0 4px 0 0" /> 
-							</td>
-							<td width="1%">
-								<?= i18n ( 'Edit' ) ?>: 
-							</td>
-							<td valign="middle" style="width: 8px">
-								<em></em>
-							</td>
-							<td valign="middle">
-								<?if ( !$GLOBALS[ 'Session' ]->AdminUser->checkPermission ( $this->page, 'Write', 'admin' ) ) { ?>
-								<input type="hidden" value="<?= $this->page->MenuTitle ?>" size="40" id="MenuTitle">
-								"<strong id="EditHeadlineDiv"><?= $this->page->MenuTitle ? $this->page->MenuTitle : $this->page->_oldTitle ?></strong>"
-								<?}?>
-								<?if ( $GLOBALS[ 'Session' ]->AdminUser->checkPermission ( $this->page, 'Write', 'admin' ) ) { ?>
-								<input type="text" 
-									style="box-sizing: border-box; -moz-box-sizing: border-box; width: 100%; margin: -6px 0 0 0;"
-									value="<?= $this->page->MenuTitle ? $this->page->MenuTitle : $this->page->_oldTitle ?>" id="MenuTitle"/>
-								<?}?>
-							</td>
-							<td valign="middle" style="width: 8px">
-								<em></em>
-							</td>
-							<td width="1%" valign="middle">
-								<div id="SmallButtons" class="HeaderBox">
-									<?= contentButtons ( $this->page, 1 ) ?>
-								</div>
-							</td>
-						</tr>
-					</table>
+					<div class="EditFlex">
+						<div class="Icon">
+							<img src="admin/gfx/icons/page_edit.png" style="margin: 0 4px 0 0" /> 
+						</div>
+						<div class="Label">
+							<?= i18n ( 'Edit' ) ?>: 
+						</div>
+						<div class="Input">
+							<?if ( !$GLOBALS[ 'Session' ]->AdminUser->checkPermission ( $this->page, 'Write', 'admin' ) ) { ?>
+							<input type="hidden" value="<?= $this->page->MenuTitle ?>" size="40" id="MenuTitle">
+							"<strong id="EditHeadlineDiv"><?= $this->page->MenuTitle ? $this->page->MenuTitle : $this->page->_oldTitle ?></strong>"
+							<?}?>
+							<?if ( $GLOBALS[ 'Session' ]->AdminUser->checkPermission ( $this->page, 'Write', 'admin' ) ) { ?>
+							<input type="text" 
+								style="box-sizing: border-box; width: 100%;"
+								value="<?= $this->page->MenuTitle ? $this->page->MenuTitle : $this->page->_oldTitle ?>" id="MenuTitle"/>
+							<?}?>
+						</div>
+						<div class="PageButtons">
+							<div id="SmallButtons" class="HeaderBox">
+								<?= contentButtons ( $this->page, 1 ) ?>
+							</div>
+						</div>
+					</div>
 				</h1>
 				<input type="hidden" id="PageID" value="<?= $this->page->ID ?>">
 				<input type="hidden" id="PageUrl" value="<?= $this->page->getUrl ( ) ?>">

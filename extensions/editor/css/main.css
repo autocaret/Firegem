@@ -1,3 +1,36 @@
+.EditFlex 
+{
+    position: relative;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    top: -3px;
+}
+
+h1 .EditFlex button, h1 .EditFlex div.Button
+{
+	margin: 0;
+}
+
+.EditFlex > div
+{
+	text-align: center;
+}
+
+.EditFlex > div.Input 
+{
+	flex: 3;
+	width: 600px;
+	flex-basis: fit-content;
+	max-width: calc(100% - 180px);
+}
+
+.EditFlex > div.PageButtons 
+{
+    width: 150px;
+    flex-basis: fit-content;
+}
+
 table.LayoutColumns
 {
 	width: 100%;
@@ -163,12 +196,27 @@ table.LayoutColumns td.Column td input
 	position: relative;
 	height: 20px;
 }
-#BottomButtons
+
+#BottomButtons 
 {
 	position: absolute;
 	left: 0px;
 	top: 0px;
 	width: 100%;
+}
+#BottomButtons, #SmallButtons
+{
+	display: flex;
+	gap: 5px;
+	align-items: center;
+	flex-direction: row;
+	align-content: center;
+	justify-content: flex-start;
+}
+
+#BottomButtons button, #BottomButtons div.Button
+{
+	margin: 0;
 }
 
 p.BodyText
