@@ -48,6 +48,7 @@ Contributor(s): Hogne Titlestad, Thomas Wollburg, Inge Jørgensen, Ola Jensen,
 				<h2 class="BlockHead"><?= i18n ( 'Your notes on this page' ) ?>:</h2>
 				<div class="BlockContainer">
 					<textarea id="PageNotes" style="<?= trim ( $this->Notes ) ? 'height: 100px;' : 'height: 35px;' ?>"><?= $this->Notes ?></textarea>
+					<script> initPageNotes(); </script>
 				</div>
 				<?= $this->toolExpansions ?>
 				<div class="SpacerSmallColored"></div>

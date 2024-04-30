@@ -25,6 +25,27 @@ function setContent ( cid )
 	document.location = 'admin.php?module=extensions&extension=editor&cid=' + cid;
 }
 
+
+let pageSaveTimeo = false;
+function initPageNotes()
+{
+	ge( 'PageNotes' ).addEventListener( 'keyup', function()
+	{
+		if( pageSaveTimeo )
+		{
+			clearTimeout( pageSaveTimeo );
+		}
+		pageSaveTimeo = setTimeout( () => {
+			let j = new bajax();
+			j.openUrl( 'admin.php?module=extensions&extension=editor&action=savenote', 'post', true );
+			j.addVar( 'cid', ge( 'PageID' ).value );
+			j.addVar( 'notes', ge( 'PageNotes' ).value );
+			j.send();
+			pageSaveTimeo = false;
+		}, 250 );
+	} );
+}
+
 function savePage ( )
 {
 	if ( ge ( 'MenuTitle' ).value.length <= 0 )
