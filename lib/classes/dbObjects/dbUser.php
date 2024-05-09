@@ -160,14 +160,14 @@ class dbUser extends dbObject
 			return true;
 		}
 		// Get user data from session (when we have already logged in)
-		else if ( $_SESSION[ "{$this->cookie_prefix}Username" ] && $_SESSION[ "{$this->cookie_prefix}Password" ] )
+		else if ( isset( $_SESSION[ "{$this->cookie_prefix}Username" ] ) && isset( $_SESSION[ "{$this->cookie_prefix}Password" ] ) )
 		{
 			$this->Username = $_SESSION[ "{$this->cookie_prefix}Username" ];
 			$this->Password = $_SESSION[ "{$this->cookie_prefix}Password" ];
 			return true;
 		}
 		// Get userdata from cookie (usually when session timed out)
-		else if ( $_COOKIE[ "{$this->cookie_prefix}UserToken" ] )
+		else if ( isset( $_COOKIE[ "{$this->cookie_prefix}UserToken" ] ) )
 		{
 			$obj = new dbObject ( 'UserLogin' );
 			$obj->Token = $_COOKIE[ "{$this->cookie_prefix}UserToken" ];
@@ -298,7 +298,7 @@ class dbUser extends dbObject
 				$username = $this->Username;
 			if ( isset ( $this->Password ) )
 				$password = $this->Password;
-			else if ( $this->Password_unhash )
+			else if ( isset( $this->Password_unhash ) )
 				$password = $this->setPassword ( $this->Password_unhash );
 			
 			if ( !isset ( $username ) || !isset ( $password ) )

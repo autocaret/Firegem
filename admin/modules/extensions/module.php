@@ -73,7 +73,7 @@ if ( file_exists ( 'extensions' ) && is_dir ( 'extensions' ) )
 			)
 			{
 				$info = file_get_contents ( "extensions/$file/info.csv" );
-				if ( trim ( $name ) )
+				if ( trim ( $info ) )
 				{
 					list ( $name, $priority ) = explode ( '|', $info );
 					if ( !(int)$priority ) $priority = 20;
@@ -129,7 +129,7 @@ if ( file_exists ( 'extensions' ) && is_dir ( 'extensions' ) )
 	/** 
 	 * Only allow to use extensions that are made to be hidden if we have a function or action 
 	**/
-	if ( !$_REQUEST[ 'function' ] && !$_REQUEST[ 'action' ] && !file_exists ( 'extensions/' . $ext . '/info.csv' ) ) 
+	if ( !isset( $_REQUEST[ 'function' ] ) && !$_REQUEST[ 'action' ] && !file_exists ( 'extensions/' . $ext . '/info.csv' ) ) 
 		$ext = $out[ 0 ];
 	
 	/**

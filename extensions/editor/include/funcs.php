@@ -220,6 +220,8 @@ function editorStructure ( $currentcontent, $parent = 0, $depth = 0 )
 	$contents->addClause ( 'WHERE', 'Language=' . $Session->CurrentLanguage );
 	$contents->addClause ( 'ORDER BY', 'IsSystem ASC, SortOrder ASC, ID ASC' );
 	
+	$ostr = '';
+	
 	if ( $contents = $contents->find ( ) )
 	{
 		$ostr = '<ul' . ( $depth == 0 ? ' id="Structure"' : '' ) . '>';

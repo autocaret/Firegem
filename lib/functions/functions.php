@@ -692,9 +692,13 @@ function i18n ( $word, $lang = false, $path = false, $admin = false )
 				continue;
 			if ( $v[0] != "#" && $v[0] != "\n" && $v[0] != "" )
 			{
-				list ( $wrd, $translation ) = explode ( ":", $v );
-				$wrd = trim ( $wrd );
-				if ( !array_key_exists ( $wrd, $trans ) ) $trans[ $wrd ] = trim ( $translation );
+				$eles = explode( ':', $v );
+				if( isset( $eles[0] ) && isset( $eles[1] ) )
+				{
+					list ( $wrd, $translation ) = $eles;
+					$wrd = trim ( $wrd );
+					if ( !array_key_exists ( $wrd, $trans ) ) $trans[ $wrd ] = trim ( $translation );
+				}
 			}
 		}
 		$GLOBALS[ "locale_$lang" ] = $trans;
@@ -703,8 +707,9 @@ function i18n ( $word, $lang = false, $path = false, $admin = false )
 	{
 		$trans = $GLOBALS[ "locale_$lang" ];
 	}
-	$result = $trans[ $word ] ? $trans[ $word ] : $word;
-	$GLOBALS[ 'translations' ][ $word ] = $trans[ $word ] ? $trans[ $word ] : $word;
+	
+	$result = isset( $trans[ $word ] ) ? $trans[ $word ] : $word;
+	$GLOBALS[ 'translations' ][ $word ] = isset( $trans[ $word ] ) ? $trans[ $word ] : $word;
 	$result = str_replace( 'i18n_', '', $result );
 	return $result;
 }

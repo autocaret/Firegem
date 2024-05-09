@@ -365,7 +365,7 @@ class dbObject
 	function loadState ( $key, $value = false )
 	{
 		if ( $value ) $this->_loadState[$key] = $value;
-		return ( isset( $this->_loadState[$key] ) ) ? $this->loadState[$key] : false;
+		return $this->_loadState[$key] ?? false;
 	}
 	
 	
