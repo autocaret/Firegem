@@ -73,7 +73,7 @@ define ( 'ACTION_URL', BASE_URL . 'admin.php?module=extensions&extension=editor&
 $GLOBALS[ 'document' ]->sHeadData[] = "\t\t" . '<script type="text/javascript">' . "\n" .
 	"\t\t\t" . 'var ACTION_URL = "' . ACTION_URL . '";' . "\n" .
 	"\t\t</script>";
-if ( $_REQUEST[ 'mod' ] )
+if ( isset( $_REQUEST[ 'mod' ] ) )
 {
 	$field = new dbObject ( 'ContentDataSmall' );
 	$field->ContentTable = 'ContentElement';

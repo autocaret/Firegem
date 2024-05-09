@@ -63,7 +63,7 @@ function safeFieldName ( $string )
 }
 
 // Trap some bajax events 
-if ( $_GET[ 'bajaxrand' ] && $_GET[ 'module' ] != 'extensions' )
+if ( isset( $_GET[ 'bajaxrand' ] ) && $_GET[ 'module' ] != 'extensions' )
 {
 	if ( file_exists ( 'lib/skeleton/modules/' . $_GET[ 'module' ] . '/module.php' ) )
 		include_once ( 'lib/skeleton/modules/' . $_GET[ 'module' ] . '/module.php' );
@@ -71,11 +71,11 @@ if ( $_GET[ 'bajaxrand' ] && $_GET[ 'module' ] != 'extensions' )
 }
 
 /* Register content id */
-if ( $_REQUEST[ 'cid' ] )
+if ( isset( $_REQUEST[ 'cid' ] ) )
 	$Session->set ( 'EditorContentID', $_REQUEST[ 'cid' ] );
 
 /* Register language */
-if ( $_REQUEST[ 'languageid' ] )
+if ( isset( $_REQUEST[ 'languageid' ] ) )
 {
 	$lang = new dbObject ( 'Languages' );
 	if ( $lang->load ( $_REQUEST[ 'languageid' ] ) )
@@ -104,7 +104,7 @@ if ( $Session->EditorContentID )
 	if ( $cnt && $cnt->Language != $Session->CurrentLanguage )
 		$Session->EditorContentID = false;
 }
-if ( !$Session->EditorContentID || $_REQUEST[ 'languageid' ] )
+if ( !$Session->EditorContentID || isset( $_REQUEST[ 'languageid' ] ) )
 {
 	$cnt = new dbContent ( );
 	$cnt->addClause ( 
@@ -125,10 +125,10 @@ $document->addResource ( 'stylesheet', $extdir . 'css/main.css' );
 
 /* Check query */
 $function = 'main';
-if ( $_REQUEST[ 'function' ] )
+if ( isset( $_REQUEST[ 'function' ] ) )
 	$function = $_REQUEST[ 'function' ];
 $action = false;
-if ( $_REQUEST[ 'action' ] )
+if ( isset( $_REQUEST[ 'action' ] ) )
 	$action = $_REQUEST[ 'action' ];
 if ( $action && file_exists ( $extdir . 'actions/' . $action . '.php' ) )
 	include_once ( $extdir . 'actions/' . $action . '.php' );

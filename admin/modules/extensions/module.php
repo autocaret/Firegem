@@ -129,7 +129,7 @@ if ( file_exists ( 'extensions' ) && is_dir ( 'extensions' ) )
 	/** 
 	 * Only allow to use extensions that are made to be hidden if we have a function or action 
 	**/
-	if ( !isset( $_REQUEST[ 'function' ] ) && !$_REQUEST[ 'action' ] && !file_exists ( 'extensions/' . $ext . '/info.csv' ) ) 
+	if ( !isset( $_REQUEST[ 'function' ] ) && !isset( $_REQUEST[ 'action' ] ) && !file_exists ( 'extensions/' . $ext . '/info.csv' ) ) 
 		$ext = $out[ 0 ];
 	
 	/**

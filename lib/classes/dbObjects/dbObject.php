@@ -895,9 +895,12 @@ class dbObject
 			{
 				if ( $this->_loadedObject && is_object( $this->_loadedObject ) )
 				{
-					if ( isset ( $this->$field ) && $field != $this->_primaryKey && $this->$field != $this->_loadedObject->$field )
+					if ( isset ( $this->$field ) && $field != $this->_primaryKey )
 					{
-						$queryValues[] = "`{$field}` = ".$this->formatField ( $field, $this->$field );
+						if( !isset( $this->_loadedObject->$field ) || $this->$field != $this->_loadedObject->$field )
+						{
+							$queryValues[] = "`{$field}` = ".$this->formatField ( $field, $this->$field );
+						}
 					}
 				}
 				else
@@ -2482,7 +2485,7 @@ class dbObject
 			$this->onLoadExtraFields ( );
 		if( !isset( $this->_primaryKey ) || !isset( $this->{$this->_primaryKey} ) || !$this->{$this->_primaryKey} )
 			return false;
-		if ( $this->_dataSource == 'core' )
+		if ( isset( $this->_dataSource ) && $this->_dataSource == 'core' )
 			return false;
 		if ( $r == 0 && $this->_loadingExtrafields )
 			return false;
@@ -2615,7 +2618,7 @@ class dbObject
 								foreach ( $GLOBALS[ '__GLOBALS__' ][ 'ExtraFieldParents' ] as $kz=>$ps )
 								{
 									$p =& $GLOBALS[ '__GLOBALS__' ][ 'ExtraFieldParents' ][$kz];
-									if ( strstr ( $p->ContentGroups, $row->ContentGroup ) && !$p->$key )
+									if ( strstr ( $p->ContentGroups, $row->ContentGroup ) && !isset( $p->$key ) )
 									{
 										$p->{$row->Name} = $p->renderExtraField ( $row, $options );
 										if ( $row->Type == 'extension' )
