@@ -1155,6 +1155,7 @@ class dbContent extends dbObject
 				{
 					$v = '<div id="' . $k . '">' . getLn ( ) . $this->{ '_replacement_' . $k } . getLn ( ) . '</div>' . getLn ( );
 				}
+				if( !isset( $groups[ $fkey ] ) ) $groups[ $fkey ] = '';
 				$groups[ $fkey ] .= $v;		
 			}
 		}
@@ -1223,10 +1224,10 @@ class dbContent extends dbObject
 			{
 				if( $advanced->group && $g != $advanced->group ) continue;
 			}
-			if ( $this->_scripts[ $g ] )
+			if ( isset( $this->_scripts[ $g ] ) )
 				foreach ( $this->_scripts[ $g ] as $s )
 					$document->addHeadScript ( $s );
-			if ( $this->_stylesheets[ $g ] )
+			if ( isset( $this->_stylesheets[ $g ] ) )
 				foreach ( $this->_stylesheets[ $g ] as $s )
 					$document->addResource ( 'stylesheet', $s );
 		}

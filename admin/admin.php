@@ -187,7 +187,7 @@ if (
 $notAuthenticated = true;
 if ( $user->authenticate ( ) && !isset ( $_REQUEST[ 'logout' ] ) )
 {
-	if ( $user->IsAdmin || $user->_dataSource == 'core' )
+	if ( ( isset( $user->IsAdmin ) && $user->IsAdmin ) || ( isset( $user->_dataSource ) && $user->_dataSource == 'core' ) )
 	{
 		$Session->Set ( 'AdminUser', $user );
 		$document->load ( 'admin/templates/main.php' );

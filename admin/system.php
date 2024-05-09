@@ -207,7 +207,7 @@ if ( !isset ( $_REQUEST[ 'bajaxrand' ] ) )
 				if ( count ( $out ) )
 				{
 					$sorted = Array ( );
-					foreach ( $out as $extension )
+					foreach ( $out as $i=>$extension )
 					{
 						$info = 'extensions/' . $extension . '/info.csv';
 						list ( $name, $priority ) = explode ( '|', file_get_contents ( $info ) );
@@ -301,13 +301,13 @@ $oStr = '';
  * Setup module defaults
  */
 $tplDir = $moduleDir . $modulename . '/templates';
-$action = $_REQUEST[ 'action' ] ? $_REQUEST[ 'action' ] : false;
+$action = $_REQUEST[ 'action' ] ?? false;
 if ( $action ) 
 {
 	$actionFn = $moduleDir . $modulename . '/actions/' . $action . '.php';
 	$action = file_exists ( $actionFn ) ? $actionFn : false;
 }
-$function = $_REQUEST[ 'function' ] ? $_REQUEST[ 'function' ] : 'main';
+$function = $_REQUEST[ 'function' ] ?? 'main';
 if ( $function ) 
 {
 	$functionFn = $moduleDir . $modulename . '/functions/' . $function . '.php';
