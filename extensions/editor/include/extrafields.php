@@ -141,7 +141,7 @@ function renderExtraFields ( $obj )
 										$extension->content =& $obj;
 										$extension = '<div class="Container" style="padding: 4px">' . $extension->render ( ) .'</div>';
 									}
-									else $extension .= '<p>Denne utvidelsen har ingen innstillinger.</p>';
+									else $extension .= '<p>No settings available for this extension.</p>';
 									$tpl->extension =& $extension;
 									$dataField = 'DataMixed';
 									break;
