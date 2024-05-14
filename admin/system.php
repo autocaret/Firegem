@@ -213,7 +213,7 @@ if ( !isset ( $_REQUEST[ 'bajaxrand' ] ) )
 						list ( $name, $priority ) = explode ( '|', file_get_contents ( $info ) );
 						if ( !$priority ) $priority = "10";
 						else $priority = trim ( $priority );
-						$sorted[] = str_pad ( $priority, 4, '0', STR_PAD_LEFT ) . '___' . trim ( $name ) . '___' . trim ( $extension ) . $i;
+						$sorted[] = str_pad ( $priority, 4, '0', STR_PAD_LEFT ) . '___' . trim ( $name ) . '___' . trim ( $extension );
 					}
 					arsort ( $sorted );
 					$sorted = array_reverse ( $sorted );
