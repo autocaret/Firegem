@@ -72,7 +72,7 @@ if( $b = $corebase->fetchObjectRows( 'DESCRIBE `Users`' ) )
         $corebase->query( 'ALTER TABLE `Users` ADD `DateLogin` datetime AFTER `Name`' );
     }
     
-    // Add date
+    // Add group indicator InGroups
     if( $spec->InGroups == 0 )
     {
         $corebase->query( 'ALTER TABLE `Users` ADD `InGroups` tinyint(4) default 0 AFTER `Email`' );
