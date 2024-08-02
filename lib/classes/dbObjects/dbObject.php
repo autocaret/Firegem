@@ -965,7 +965,7 @@ class dbObject
 			}
 			catch( Exception $e )
 			{
-				die( 'Error executing query: ' . $e->getMessage() );
+				die( 'Error executing query: ' . $e->getMessage() . ' ' . "\nQuery: $query" );
 			}
 			$this->_lastQuery = $query;
 			if( isset( $this->_primaryKey ) )
