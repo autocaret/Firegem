@@ -30,10 +30,8 @@
 		<script type="text/javascript" src="lib/javascript/bajax.js"></script>
 		<script type="text/javascript" src="lib/javascript/arena-lib.js"></script>
 		<script type="text/javascript" src="lib/javascript/modaldialog.js"></script>
-		<script type="text/javascript" src="lib/javascript/arena-api.js"></script>
+		<!--<script type="text/javascript" src="lib/javascript/arena-api.js"></script>-->
 		<script type="text/javascript" src="lib/javascript/draglib.js"></script>
-		<script type="text/javascript" src="lib/javascript/workbench.js"></script>
-		<script type="text/javascript" src="lib/javascript/arena-admin.js"></script>
 <?= implode ( "\\n", $this->sHeadData ) ?>
 	</head>
 	<body class="<?= getCurrentModule ( ) ?>">
