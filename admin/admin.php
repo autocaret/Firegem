@@ -35,6 +35,7 @@ require ( 'config.php' );
 if ( !defined ( 'ADMIN_LANGUAGE' ) ) define ( 'ADMIN_LANGUAGE', 'no' );
 if ( !defined ( 'LOCALE' ) ) define ( 'LOCALE', ADMIN_LANGUAGE );
 define ( 'ARENAMODE', 'admin' );
+if( !defined( 'DATE_FORMAT' ) ) define( 'DATE_FORMAT', 'Y-m-d H:i:s' );
 
 /**
  * Include only the basic classes
