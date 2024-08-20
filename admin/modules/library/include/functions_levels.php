@@ -378,20 +378,23 @@ function generateLevelTree ( $content, $currentid, $r = "" )
 			$content->getFolders ( );
 		}
 		
-		$len = count ( $content->_folders );
-		
-		if ( $len > 0 && is_array ( $content->_folders ) )
+		if( is_array( $content->_folders ) )
 		{
-			$oStr.='<ul>';
-			for ( $a = 0; $a < $len; $a++ )
-			{
-				if( is_object( $content->_folders[ $a ] ) )
-				{
-					$oStr.= generateLevelTree( $content->_folders[ $a ], $currentid );
-				}
-			}
-			$oStr.='</ul>';			
-		}
+		    $len = count ( $content->_folders );
+		    
+		    if ( $len > 0 )
+		    {
+			    $oStr.='<ul>';
+			    for ( $a = 0; $a < $len; $a++ )
+			    {
+				    if( is_object( $content->_folders[ $a ] ) )
+				    {
+					    $oStr.= generateLevelTree( $content->_folders[ $a ], $currentid );
+				    }
+			    }
+			    $oStr.='</ul>';			
+		    }
+	    }
 		// Orphans entry (trash)
 		if ( $content->Parent == 0 )
 		{

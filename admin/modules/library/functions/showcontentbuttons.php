@@ -23,7 +23,7 @@ Rune Nilssen
 $db =& dbObject::globalValue ( 'database' );
 if( intval( $_REQUEST['lid'], 10 ) > 0 )
 {
-	$content = $db->fetchObjectRow ( 'SELECT * FROM Folder WHERE ID=' . intval( $_REQUEST[ 'lid' ], 10 ), MYSQL_ASSOC );
+	$content = $db->fetchObjectRow ( 'SELECT * FROM Folder WHERE ID=' . intval( $_REQUEST[ 'lid' ], 10 ) );
 	$content->_primaryKey = 'ID';
 	$content->_tableName = 'Folder';
 	$content->_isLoaded = true;

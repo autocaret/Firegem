@@ -60,13 +60,13 @@ class cTime
 		$b = 0;
 		for ( $a = 0; $a < strlen ( $out ); $a++ )
 		{
-			if ( $out{$a} == "," || $out{$a} == "." || $out{$a} == " " || $out{$a} == "-" || $out{$a} == ":" || $out{$a} == ";" )
+			if ( $out[$a] == "," || $out[$a] == "." || $out[$a] == " " || $out[$a] == "-" || $out[$a] == ":" || $out[$a] == ";" )
 			{
-				$signs[] = $out{$a};
+				$signs[] = $out[$a];
 				$b++;
 			}
 			else
-				$outs[ $b ] .= $out{$a};
+				$outs[ $b ] .= $out[$a];
 		}
 		$out = "";
 		
