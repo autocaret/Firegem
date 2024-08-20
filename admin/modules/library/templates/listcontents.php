@@ -90,8 +90,12 @@ Contributor(s): Hogne Titlestad, Thomas Wollburg, Inge Jørgensen, Ola Jensen,
 		$btn = '';
 		
 		// pageination
-		$totalCount = $this->contents[ 'all' ] ? count ( $this->contents[ 'all' ] ) : 
-			( count ( $this->contents['images'] ) + count ( $this->contents['files'] ) );
+		$totalCount = is_array( $this->contents[ 'all' ] ) ? count ( $this->contents[ 'all' ] ) : 0;
+		if( !is_array( $this->contents[ 'all' ] ) )
+		{ 
+			$totalCount += is_array( $this->contents[ 'images' ] ) ? count( $this->contents[ 'images'] ) : 0;
+			$totalCount += is_array( $this->contents[ 'files'  ] ) ? count( $this->contents[ 'files' ] ) : 0;
+	    }
 		if( $totalCount > 10 ) 
 		{
 			$cp = new cPagination();
@@ -112,7 +116,7 @@ Contributor(s): Hogne Titlestad, Thomas Wollburg, Inge Jørgensen, Ola Jensen,
 			<?= $this->pagination ? ( '<td style="white-space: nowrap; padding-right: 2px">' . $this->pagination . '</td>' ) : '' ?>
 			<td>
 				<div class="SubContainer" style="height: 24px; padding-top: 15px">
-					<?= i18n ( 'Folder' ) ?> "<?= $this->folder->Name ?>" <?= i18n ( 'contains' ) ?> <?= count( $this->contents['images'] )?> bilde(r) og <?= count( $this->contents['files'] )?> fil(er).
+					<?= i18n ( 'Folder' ) ?> "<?= $this->folder->Name ?>" <?= i18n ( 'contains' ) ?> <?= is_array( $this->contents[ 'images' ] ) ? count( $this->contents['images'] ) : 0 ?> bilde(r) og <?= is_array( $this->contents[ 'files' ] ) ? count( $this->contents['files'] ) : 0 ?> fil(er).
 				</div>
 			</td>
 		</tr>

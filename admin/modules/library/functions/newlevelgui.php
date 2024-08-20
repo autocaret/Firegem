@@ -25,7 +25,7 @@ $tpl = new cPTemplate ( 'admin/modules/library/templates/newlevelgui.php' );
 $tpl->lid =& $_REQUEST[ 'lid' ];
 
 $db =& dbObject::globalValue ( 'database' );
-$content = $db->fetchObjectRow ( 'SELECT * FROM Folder WHERE ID=' . $tpl->lid, MYSQL_ASSOC );
+$content = $db->fetchObjectRow ( 'SELECT * FROM Folder WHERE ID=' . $tpl->lid );
 $content->_primaryKey = 'ID';
 $content->_tableName = 'Folder';
 $content->_isLoaded = true;

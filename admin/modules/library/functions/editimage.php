@@ -38,7 +38,7 @@ else if ( intval( $_REQUEST[ 'folderID' ] ) > 0 )
 }
 
 $db =& dbObject::globalValue ( 'database' );
-$content = $db->fetchObjectRow ( 'SELECT * FROM Folder WHERE ID=' . $tpl->folderID, MYSQL_ASSOC );
+$content = $db->fetchObjectRow ( 'SELECT * FROM Folder WHERE ID=' . $tpl->folderID );
 $content->_primaryKey = 'ID';
 $content->_tableName = 'Folder';
 $content->_isLoaded = true;
