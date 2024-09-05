@@ -249,7 +249,7 @@ if ( !$errors )
 							$sql = explode ( ';', $sql );
 							foreach ( $sql as $s )
 							{
-								if ( $s{0} == '-' ) continue;
+								if ( $s[0] == '-' ) continue;
 								if ( !trim ( $s ) ) continue;
 								$sdb->query ( trim ( $s ) );
 							}
@@ -410,7 +410,7 @@ if ( !$errors )
 							$sql = explode ( ';', $sql );
 							foreach ( $sql as $s )
 							{
-								if ( $s{0} == '-' ) continue;
+								if ( $s[0] == '-' ) continue;
 								if ( !trim ( $s ) ) continue;
 								$cdb->query ( trim ( $s ) );
 							}
@@ -443,7 +443,7 @@ if ( !$errors )
 							$sql = explode ( ';', $sql );
 							foreach ( $sql as $s )
 							{
-								if ( $s{0} == '-' ) continue;
+								if ( $s[0] == '-' ) continue;
 								if ( !trim ( $s ) ) continue;
 								$cdb->query ( trim ( $s ) );
 							}
