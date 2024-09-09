@@ -213,7 +213,7 @@ if ( $user->authenticate ( ) && !isset ( $_REQUEST[ 'logout' ] ) )
 			}
 			
 		}
-		include_once ( 'admin/system.php' );
+		include_once( 'admin/system.php' );
 	}
 }
 if ( $notAuthenticated || isset ( $_REQUEST[ 'logout' ] ) )
