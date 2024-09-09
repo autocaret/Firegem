@@ -59,7 +59,7 @@ Contributor(s): Hogne Titlestad, Thomas Wollburg, Inge Jørgensen, Ola Jensen,
 		<? $this->__Content =  executeWebModule ( $this->page, $_REQUEST[ 'ue' ] ? 'extensions' : false ); ?>
 		<?= $this->__TopContent ?>
 		<div id="Empty__"></div>
-		<div id="CenterBox__" class="<?= is_numeric ( $this->page->RouteName{0} ) ? ( 'a' . $this->page->RouteName ) : $this->page->RouteName ?>">
+		<div id="CenterBox__" class="<?= is_numeric ( $this->page->RouteName[0] ) ? ( 'a' . $this->page->RouteName ) : $this->page->RouteName ?>">
 			<div id="Center__" style="">
 				<div id="Content__">
 					<?if ( !defined ( 'TOPMENU_CONTENTGROUP' ) || !TOPMENU_CONTENTGROUP ) { ?>

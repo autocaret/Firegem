@@ -269,7 +269,7 @@ class cPTemplate
 		$code = stripslashes ( $code );
 		if ( $code && trim( $code ) )
 		{
-			return eval ( $code );
+		    return eval ( $code );
 		}
 		else return '';
 	}
