@@ -39,17 +39,24 @@ if ( $_REQUEST[ 'SiteID' ] )
 	
 	foreach ( $ModuleSettings as $s )
 	{
-		if ( $_REQUEST[ $s[ 0 ] ] != '0' )
+		if( $_REQUEST[ $s[ 0 ] ] != '0' && $_REQUEST[ $s[ 0 ] ] != 0  )
 		{
-			if ( !( $settings = $base->fetchObjectRow ( 'SELECT ID FROM ModulesEnabled WHERE ID=' . $_REQUEST[ $s[ 0 ] ] ) ) )
-			{
-				$base->query ( '
-				INSERT INTO ModulesEnabled 
-					( SiteID, Module, SortOrder, ModuleName, ModuleIcon ) 
-				VALUES 
-					( \'' . $_REQUEST[ 'SiteID' ] . '\', "' . $s[ 0 ] . '", ' . $s[ 1 ] . ', "' . $s[ 2 ] . '", "' . $s[ 3 ] . '" )
-				' );
-			}
+		    try
+		    {
+			    if ( !( $settings = $base->fetchObjectRow ( $q = ( 'SELECT ID FROM ModulesEnabled WHERE ID=\'' . $_REQUEST[ $s[ 0 ] ] . '\'' ) ) ) )
+			    {
+				    $base->query ( '
+				    INSERT INTO ModulesEnabled 
+					    ( SiteID, Module, SortOrder, ModuleName, ModuleIcon ) 
+				    VALUES 
+					    ( \'' . $_REQUEST[ 'SiteID' ] . '\', "' . $s[ 0 ] . '", ' . $s[ 1 ] . ', "' . $s[ 2 ] . '", "' . $s[ 3 ] . '" )
+				    ' );
+			    }
+		    }
+		    catch( Exception $e )
+		    {
+		        die( 'Exception: ' . $e . "\n\n" . $q );
+		    }
 		}
 		else
 		{
