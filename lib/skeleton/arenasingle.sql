@@ -30,6 +30,19 @@ CREATE TABLE IF NOT EXISTS `ArenaInfo` (
 -- --------------------------------------------------------
 
 --
+-- Notes
+--
+
+CREATE TABLE `Notes` (
+  `ContentTable` varchar(255) NOT NULL,
+  `ContentID` bigint NOT NULL,
+  `Notes` text,
+  PRIMARY KEY (`ContentTable`,`ContentID`)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `BlogItem`
 --
 
