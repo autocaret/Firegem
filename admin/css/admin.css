@@ -239,7 +239,7 @@ html .ModalContents.Showing
 .Container
 {
 	display: block;
-	border: 1px solid #d0d0d0;
+	border: 1px solid #d0d0d088;
 	background: #fcfcfc;
 	padding: 20px;
 	border-radius: 2px;
@@ -250,7 +250,7 @@ html .ModalContents.Showing
 .SubContainer
 {
 	display: block;
-	border: 1px solid #d0d0d0;
+	border: 1px solid #d0d0d088;
 	background: #f8f8f8;
 	padding: 20px;
 	border-radius: 2px;
@@ -272,7 +272,7 @@ html .ModalContents.Showing
 
 .SubContainer .Container
 {
-	border: 1px solid #ddd;
+	border: 1px solid #d0d0d088;
 	background: #fff;
 }
 

@@ -55,7 +55,7 @@ function __deleteContent ( $cnt, $selid )
 		$cnt->delete ( );
 		
 		// Delete notes
-		$db->query ( 'DELETE FROM Notes WHERE ContentID=' . $cnt->ID . ' AND ContentTable="ContentElement"' );
+		$db->query ( 'DELETE FROM `Notes` WHERE ContentID=\'' . $cnt->ID . '\' AND ContentTable="ContentElement"' );
 		
 		// Find parent and set new editor content id
 		if ( $selid == $cnt->ID )

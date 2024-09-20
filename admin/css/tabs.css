@@ -7,7 +7,7 @@
 {
 	clear: both;
 	background: #ffffff;
-	border: 1px solid #b0b0b0;
+	border: 1px solid #b0b0b088;
 	padding: 10px;
 	margin-bottom: 8px;
 	border-radius: 0 4px 4px 4px;
@@ -31,7 +31,7 @@
 
 .subTabs .pageActive
 {
-	border: 1px solid #b0b0b0;
+	border: 1px solid #b0b0b088;
 	margin-bottom: -1px;
 	position: relative;
 	top: 0px;
@@ -73,7 +73,7 @@
 	float: left;
 	padding: 8px 8px 5px 8px;
 	margin-right: 2px;
-	border: 1px solid #b0b0b0;
+	border: 1px solid #b0b0b088;
 	font-size: 13px;
 	margin-bottom: -1px;
 	color: #000000;

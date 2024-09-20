@@ -784,9 +784,10 @@ class dbImage extends dbObject
 			{
 				$exif = exif_read_data( $path );
 				
+				$image = imagecreatefromstring( file_get_contents( $path ) );
+				
 				if( !empty( $exif['Orientation'] ) )
 				{
-					$image = imagecreatefromstring( file_get_contents( $path ) );
 					switch( $exif['Orientation'] )
 					{
 						case 8:
@@ -799,6 +800,10 @@ class dbImage extends dbObject
 							$image = imagerotate( $image, -90, 0 );
 							break;
 					}
+				}
+				if( !isset( $image ) || !$image )
+				{
+				    ArenaDie( 'Failed to upload and read image.' );
 				}
 				// Write rotated image
 				imagejpeg( $image, $path, 90 );

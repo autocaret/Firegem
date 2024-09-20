@@ -38,7 +38,7 @@ if( !defined( 'LIBRARY_ITEMSPERPAGE' ) ) define( 'LIBRARY_ITEMSPERPAGE', 15 );
 if ( !$Session->LibraryListmodeOrder )
 	$Session->Set ( 'LibraryListmodeOrder', 'ASC' );
 
-if ( $_REQUEST[ 'listmode' ] )
+if ( isset( $_REQUEST[ 'listmode' ] ) )
 {
 	if ( $_REQUEST[ 'listmode' ] == $Session->LibraryListmode )
 		$Session->Set ( 'LibraryListmodeOrder', $Session->LibraryListmodeOrder == 'ASC' ? 'DESC' : 'ASC' );
@@ -46,11 +46,11 @@ if ( $_REQUEST[ 'listmode' ] )
 }
 if ( !$Session->LibraryListmode ) $Session->Set ( 'LibraryListmode', 'sortorder' );
 
-if( ( isset( $_REQUEST[ 'lid' ] ) && intval( $_REQUEST[ 'lid' ] ) > 0 ) || $_REQUEST[ 'lid' ] == 'orphans' ) 
+if( ( isset( $_REQUEST[ 'lid' ] ) && intval( $_REQUEST[ 'lid' ] ) > 0 ) || ( isset( $_REQUEST[ 'lid' ] ) && $_REQUEST[ 'lid' ] == 'orphans' ) ) 
 	$Session->set ( 'LibraryCurrentLevel', $_REQUEST[ 'lid' ] );
 else if ( !$Session->LibraryCurrentLevel )
 	$Session->set ( 'LibraryCurrentLevel', $root->ID );
-if ( $_REQUEST[ 'viewmode' ] )
+if ( isset( $_REQUEST[ 'viewmode' ] ) )
 	$Session->Set ( 'LibraryViewMode', $_REQUEST[ 'viewmode' ] );
 if ( !$Session->LibraryViewMode ) $Session->Set ( 'LibraryViewMode', 'details' );
 

@@ -1016,8 +1016,8 @@ class dbObject
 			$database->query ( 'DELETE FROM `ObjectPermission` WHERE `ObjectID`=\'' . $this->ID . '\' AND `ObjectType`="' . $this->_tableName . '"' );
 			
 			// Clean up extra fields
-			$database->query ( 'DELETE FROM ContentDataSmall WHERE ContentID=\'' . $this->ID . '\' AND ContentTable="' . $this->_tableName . '\'' );
-			$database->query ( 'DELETE FROM ContentDataBig WHERE ContentID=\'' . $this->ID . '\' AND ContentTable="' . $this->_tableName . '\'' );
+			$database->query ( 'DELETE FROM ContentDataSmall WHERE ContentID=\'' . $this->ID . '\' AND ContentTable="' . $this->_tableName . '"' );
+			$database->query ( 'DELETE FROM ContentDataBig WHERE ContentID=\'' . $this->ID . '\' AND ContentTable="' . $this->_tableName . '"' );
 		}
 		
 		$this->loadTable ();
@@ -1030,10 +1030,13 @@ class dbObject
 		$keys = $this->_primaryKey;
 		if ( !is_array( $keys ) ) $keys = array ( $keys );
 		
-		for ( $i = 0; $i < sizeof( $this->_primaryKey ); $i++ )
+		for ( $i = 0; $i < strlen( $this->_primaryKey ); $i++ )
 		{
-			if ( $i > 0 ) $query .= 'AND ';
-			$query .= "`{$keys[$i]}` = " .$this->formatField ( $keys[$i], $this->{$keys[$i]} ) . " ";
+		    if( isset( $keys[$i] ) && strlen( $keys[$i] ) > 0 )
+		    {
+			    if ( $i > 0 ) $query .= 'AND ';
+			    $query .= "`{$keys[$i]}` = " .$this->formatField ( $keys[$i], $this->{$keys[$i]} ) . " ";
+		    }
 		}
 		
 		$this->_lastQuery = $query;
