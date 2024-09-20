@@ -1047,7 +1047,8 @@ class dbObject
 			$this->removeFromParents();
 			
 			// Clean up dangling permissions / objects and extra fields
-			$pk = $this->{$this->_primaryKey};
+			$pk = $this->_primaryKey;
+			
 			$database->query ('DELETE FROM ContentDataBig WHERE ContentTable="'.$this->_tableName.'" AND ContentID NOT IN ( SELECT `'.$pk.'` FROM `'.$this->_tableName.'` )');
 			$database->query ('DELETE FROM ContentDataSmall WHERE ContentTable="'.$this->_tableName.'" AND ContentID NOT IN ( SELECT `'.$pk.'` FROM `'.$this->_tableName.'` )');
 			$database->query ('DELETE FROM ObjectPermission WHERE ObjectType ="'.$this->_tableName.'" AND ObjectID NOT IN ( SELECT `'.$pk.'` FROM `'.$this->_tableName.'` )');
