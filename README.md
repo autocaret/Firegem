@@ -47,6 +47,8 @@ You will need to modify your virtual host in order for Firegem to see your
 </VirtualHost>
 ```
 
+Remember to have modrewrite enabled (sudo a2enmod rewrite && sudo service apache2 reload).
+
 
 ## History
 
