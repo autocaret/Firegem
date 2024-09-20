@@ -6,11 +6,16 @@
 @import url('workbench.css');
 @import url('collapsable_list.css');
 
+body
+{
+    font-size: 15px;
+}
+
 #TopLogo
 {
 	position: absolute;
 	top: 17px;
-	left: 14px;
+	left: 15px;
 }
 
 #TopLogo img
@@ -520,7 +525,7 @@ tr.swSub2, .swSub2
 .TextDisplay h1 { font-size: 26px; }
 .TextDisplay h2 { font-size: 23px; }
 .TextDisplay h3 { font-size: 16px; }
-.TextDisplay h4 { font-size: 13px; }
+.TextDisplay h4 { font-size: 15px; }
 
 /*
 	Done edit boxes preview
@@ -604,7 +609,7 @@ tr.swSub2, .swSub2
 	border: 0;
 	background: #fff;
 	font-family: monospace, courier, courier new;
-	font-size: 13px;
+	font-size: 15px;
 	padding: 0;
 }
 .ArenaEditorToolbar hr
@@ -633,7 +638,7 @@ tr.swSub2, .swSub2
 	border-bottom: 1px solid #cccccc;
 	color: #000000;
 	background: #f8f8f8;
-	font-size: 13px;
+	font-size: 15px;
 	outline: 1px solid #999999;
 }
 .ArenaEditorPopupMenu li, .ArenaEditorPopupMenu ul
