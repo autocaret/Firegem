@@ -245,9 +245,9 @@ function editorStructure ( $currentcontent, $parent = 0, $depth = 0 )
 				$info .= '<td class="Column">' . ( ( strtotime ( $content->DatePublish ) <= 0 ) ? 'Ikke publisert' : ArenaDate ( 'd/m/Y H:i', $content->DatePublish  ) ) . '</td></tr>';
 				$info .= '<tr><td class="Column">Sist endret:</td>';
 				$info .= '<td class="Column">' . ArenaDate ( 'd/m/Y H:i', $content->DateModified  ) . '</td></tr>';
-				if ( $author->Name )
+				if ( isset( $author->Name ) )
 					$info .= '<tr><td class="Column">Endret av:</td><td class="Column">' . $author->Name . '</td></tr>';
-				if ( $content->IsPublished ) 
+				if ( isset( $content->IsPublished ) && $content->IsPublished ) 
 					$info .= '<tr><td class="Column">Status:</td><td class="Column">Viser på nettsiden</td></tr>';
 				else $info .= '<tr><td class="Column">Status:</td><td class="Column">Skjult</td></tr>';
 				$info .= '</table></div>';

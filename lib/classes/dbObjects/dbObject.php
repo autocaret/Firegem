@@ -2513,7 +2513,7 @@ class dbObject
 			{
 				$contentoptions2a = ' AND el1.MainID != el1.ID AND el1.ID = b.ContentID';
 				$contentoptions2b = ' AND el2.MainID != el2.ID AND el2.ID = c.ContentID';
-				if ( $this->isTemplate <= 0 )
+				if ( !isset( $this->isTemplate ) || $this->isTemplate <= 0 )
 				{
 					$contentoptions2a .= ' AND el1.isTemplate = 0';
 					$contentoptions2b .= ' AND el2.isTemplate = 0';
@@ -2524,7 +2524,7 @@ class dbObject
 			{
 				$contentoptions2a = ' AND el1.MainID = el1.ID AND el1.ID = b.ContentID';
 				$contentoptions2b = ' AND el2.MainID = el2.ID AND el2.ID = c.ContentID';
-				if ( $this->isTemplate <= 0 )
+				if ( !isset( $this->isTemplate ) || $this->isTemplate <= 0 )
 				{
 					$contentoptions2a .= ' AND el1.isTemplate = 0';
 					$contentoptions2b .= ' AND el2.isTemplate = 0';
@@ -2669,7 +2669,13 @@ class dbObject
 			// If there's a function after trying to load extrafields
 			if ( method_exists ( $this, 'onLoadedExtraFields' ) )
 				$this->onLoadedExtraFields ( );
-			unset ( $GLOBALS[ '__GLOBALS__' ][ 'ExtraFieldParents' ][ $this->getObjectIdentifier ] );
+			if( 
+			    isset( $this->getObjectIdentifier ) &&
+			    isset( $GLOBALS[ '__GLOBALS__' ][ 'ExtraFieldParents' ][ $this->getObjectIdentifier ] ) 
+		    )
+		    {
+    			unset ( $GLOBALS[ '__GLOBALS__' ][ 'ExtraFieldParents' ][ $this->getObjectIdentifier ] );
+			}
 			
 			// Resort extrafields
 			$sortable = array ();

@@ -30,7 +30,17 @@ Rune Nilssen
 function generatePluginFolderstructure ( $currentid = 0, $parent = 0, $r = '' )
 {
 	global $Session;
-	if ( !$currentid ) $currentid = $Session->pluginLibraryLevelID;
+	
+	if ( !$currentid )
+	{
+	    if( isset( $Session->pluginLibraryLevelID ) )
+	    {
+    	    $currentid = $Session->pluginLibraryLevelID;
+	    }
+    }
+	
+	$str = '';
+	
 	$fld = new dbObject ( 'Folder' );
 	$fld->Parent = $parent;
 	$fld->addClause ( 'ORDER BY', 'Name ASC, ID ASC' );

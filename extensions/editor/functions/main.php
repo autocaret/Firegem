@@ -100,7 +100,7 @@ if ( !$tpl->page->DateCreated )
 
 $db =& $cnt->getDatabase ( );
 if ( $notes = $db->fetchObjectRow ( 'SELECT * FROM Notes WHERE ContentTable="ContentElement" AND ContentID=' . $cnt->ID ) )
-	$tpl->Notes =& stripslashes ( $notes->Notes );
+	$tpl->Notes = stripslashes ( $notes->Notes );
 else $tpl->Notes = '';
 
 if ( !$Session->EditorDbChecked )

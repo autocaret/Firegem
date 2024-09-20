@@ -98,13 +98,13 @@ else if ( !$Session->CurrentLanguage )
 }
 
 /* Double check that we have content from current language */
-if ( $Session->EditorContentID )
+if ( isset( $Session->EditorContentID ) )
 {
 	$cnt = new dbContent ( $Session->EditorContentID );
 	if ( $cnt && $cnt->Language != $Session->CurrentLanguage )
 		$Session->EditorContentID = false;
 }
-if ( !$Session->EditorContentID || isset( $_REQUEST[ 'languageid' ] ) )
+if ( !isset( $Session->EditorContentID ) || isset( $_REQUEST[ 'languageid' ] ) )
 {
 	$cnt = new dbContent ( );
 	$cnt->addClause ( 

@@ -691,7 +691,7 @@ class dbContent extends dbObject
 				else return $this->interpretParentExtraField ( $fieldObject, $options );
 
 			default:
-				if ( $fieldObject->DataText )						
+				if ( isset( $fieldObject->DataText ) )
 					return $this->ProcessText ( $fieldObject->DataText );
 				else return $this->interpretParentExtraField ( $fieldObject, $options );
 		}
@@ -1103,7 +1103,7 @@ class dbContent extends dbObject
 				return '';
 			
 			default:
-				if ( $fieldObject->DataText )
+				if ( isset( $fieldObject->DataText ) )
 					return "<div id=\"{$fieldObject->Name}\"$cln>" . $this->ProcessText ( $fieldObject->DataText ) . "</div>";
 				else return $this->renderParentExtraField ( $fieldObject, $options = false );
 				return '';
