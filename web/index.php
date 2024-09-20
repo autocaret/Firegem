@@ -77,7 +77,7 @@ include_once ( 'lib/lib.php' );
 include_once ( 'lib/core_config.php' );
 $corebase->Open ( );
 dbObject::globalValueSet ( 'corebase', $corebase );
-die( var_dump( $_REQUEST ) );
+
 /**
  * Setup the site database
 **/
